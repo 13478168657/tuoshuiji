@@ -33,6 +33,15 @@
                                 </tr>
                                 <tr>
                                     <th style="width:10%;">
+                                        <label for="case_foreman_id"> 分类名称英文:</label>
+                                    </th>
+                                    <td style="width:90%;">
+                                        <div class="form-group">                                                                <input type="text" class="form-control" id="inputPassword2" style="width:350px;" name="english_name" placeholder="英文分类名称">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="width:10%;">
                                         <label for="case_foreman_id">网页标题:</label>
                                     </th>
                                     <td style="width:90%;">

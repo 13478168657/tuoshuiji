@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |{account}.xaxq365.com.cn
 */
-Route::group(['domain' => '{account}.hc.com'], function () {
+Route::group(['domain' => '{account}.tsj.com'], function () {
 //    dd($_SERVER['REQUEST_URI']);
     Route::get('/', function ($account) {
 //        dd($account);
@@ -217,6 +217,9 @@ Route::group(['domain' => '{account}.hc.com'], function () {
             Route::get('base/edit', 'Base\BaseConfigController@edit');
             Route::post('base/postEdit', 'Base\BaseConfigController@postEdit');
             Route::post('base/del', 'Base\BaseConfigController@del');
+
+            Route::get('base/change','Base\BaseConfigController@change');
+            Route::post('base/model/change','Base\BaseConfigController@modelChange');
         });
     });
 

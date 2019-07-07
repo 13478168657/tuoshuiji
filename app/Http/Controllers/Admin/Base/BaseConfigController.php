@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Base;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\BaseConfig;
+use App\Models\ProjectModel;
 
 class BaseConfigController extends Controller
 {
@@ -70,6 +71,23 @@ class BaseConfigController extends Controller
             return json_encode(['code'=>0,'msg'=>'删除成功']);
         }else{
             return json_encode(['code'=>1,'msg'=>'删除失败']);
+        }
+    }
+
+    public function change(Request $request){
+        $projectModel = ProjectModel::first();
+
+        return view('admin.project.index',['projectModel'=>$projectModel]);
+    }
+
+    public function modelChange(Request $request){
+        $type = $request->input('type',0);
+        $projectModel = ProjectModel::first();
+        $projectModel->type = $type;
+        if($projectModel->save()){
+            return redirect('/base/change');
+        }else{
+            return redirect('/base/change');
         }
     }
 }

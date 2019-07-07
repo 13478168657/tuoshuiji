@@ -1,0 +1,79 @@
+
+/* 产品展示 begin*/
+.product{
+	border: 1px solid red;
+	margin-top: 20px;
+}
+.product  h2{
+	text-align: center;
+	font-size: 32px;
+	margin: 0px 0px 10px;
+	color: #333;
+	font-weight: bold;
+}
+
+.product span{
+	display: block;
+	text-align: center;
+	line-height: 1.5;
+    font-size: 16px;
+}
+
+
+
+
+.fh5co-heading h2{font-size:32px; text-align:center; margin:0px 0px 10px; color:#333; font-weight:bold}
+
+.fh5co-heading span{line-height:1.5; font-size:16px;}
+
+.zoomimgs{display:block; padding-bottom: 64%; overflow:hidden; background-position: center center; background-repeat: no-repeat; -webkit-background-size:cover; -moz-background-size:cover; background-size:cover;/*图片不裁切需要全部显示改用background-size:contain，改变图片缩放比例改paddding-bottom的百分比,如图片宽高1:1 100%，4:3 75%，3:4 133.33%*/}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 首页产品展示 begin*/
+
+#fh5co-product-list .bg-product{ padding:60px 0px 30px; background:#EBEBEB;}
+
+#fh5co-product-list .show-list{ padding-top:40px; width: 1000px; margin:0 auto;}
+
+/* 首页产品展示 end*/
+
+
+
+/* 产品展示 begin*/
+
+.show-product h3{margin:10px 0px 0px; font-size:14px; line-height:20px; height:30px; overflow:hidden;}
+
+.show-product a{-webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1); box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1); color:#333; display:block;  background:#fff; padding:8px 8px 0}
+
+.show-product a .media-img{transition: opacity 0.5s;-moz-transition: opacity 0.5s;-webkit-transition: opacity 0.5s;-o-transition: opacity 0.5s;  width:100%; overflow:hidden}
+
+.show-product a:hover .media-img{ opacity:0.8; }
+
+.show-product a:hover{ color:#000; text-decoration:none;-webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.3); box-shadow: 0 1px 2px 0 rgba(0,0,0,0.3);}
+
+.show-product a:hover h3{ color:#f13a3a}
+
+
+
+#fh5co-content_show .show-product a{border:1px solid #ddd}
+
+/* 产品展示 end*/
+.youshi{
+
+	margin-bottom: 50px;
+}
+.youshi img{
+	margin-bottom: 0px;
+}
+

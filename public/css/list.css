@@ -1,6 +1,64 @@
-﻿.side_class4 {
+
+.list .left-l{
+	width: 250px;
+
+	margin-top: 20px;
+	float: left;
+}
+.list .left-r{
+	margin-bottom: 20px;
+		border: 1px solid #5b5758;
+}
+.list .left{
+	margin-bottom: 20px;
+		border: 1px solid #5b5758;
+}
+.list .dianhua{
+	height: 50px;
+	background-color: #5b5758;
+	color: #fff;
+	line-height: 50px;
+	text-align: center;
+	margin: 0 auto;
+	font-size: 20px;
+	font-weight: bold;
+}
+.list  p{
+	margin-left: 15px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.yanse{
+	color: red;
+	font-weight: bold;
+}
+.list .left-r ul li a{
+	display: block;
+	width: 200px;
+	margin: 0 auto;
+	border-bottom: 1px dotted #5b5758;
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+	margin-top: 10px;
+	height: 20px;
+	line-height: 20px;
+	margin-bottom: 15px;
+
+}
+.list .left-r ul li a:hover{
+	color: red;
+}
+.right{
+	float: right;
+	margin-top: 20px;
+	width: 700px;
+}
+
+.side_class4 {
     margin-top: 40px;
     padding: 0px;
+    width: 700px;
 }
 
 .side_class4 li {
@@ -21,7 +79,7 @@
             -moz-transform:scale(1.2);
 }
 .side_class4 li .rtext {
-    width: 620px;
+    width: 500px;
     height: 120px;
     float: right;
     position: relative;
@@ -47,7 +105,7 @@
     font-weight:bold;
 }
 .side_class4 li .rtext .side3_title a:hover{
-    color: #a5291f;
+    color: red;
 }
 .side_class4 li .rtext .side2_title{
     margin-top: 10px;
@@ -68,8 +126,8 @@
 
 }
 .pagination .pagination-curr, .pagination a:hover {
-    border-color: #a5291f;
-    background: #a5291f;
+    border-color: red;
+    background: red;
     color: #fff;
     text-decoration: none;
 }
@@ -87,8 +145,13 @@
     color: #666;
 }
 .pagination .pagination-curr, .pagination a:hover {
-    border-color: #a5291f;
-    background: #a5291f;
+    border-color: red;
+    background: red;
     color: #fff;
     text-decoration: none;
+}
+.BreadNav {
+	width: 700px;
+	padding:10px;
+	border-bottom: 1px dashed #5b5758;
 }

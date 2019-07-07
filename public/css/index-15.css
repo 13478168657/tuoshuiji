@@ -1,0 +1,27 @@
+﻿
+.index-14{
+	width: 1000px;
+	margin: 0 auto;
+}
+.index-14 .left,.index-14 .right{ height: 270px;border: 1px solid #D6D6D6;padding: 19px 14px 0; width: 490px;}
+.index-14 .title1{ border-bottom:none; margin-bottom: 10px; height: 32px;}
+.index-14 .title1 h3{background: #d72502; height: 32px; line-height: 32px; font-size: 18px; font-weight: bold;padding: 0 18px; display: inline-block; color: #fff; margin-bottom: 12px;}
+.index-14 .group .img{ margin-right: 17px;}
+.index-14 .group ul{ width: 250px;}
+.index-14 .left ul li{ position: relative; margin-bottom: 12px;}
+.index-14 .left ul i{ width: 50px; height: 60px; line-height: 64px; font-size: 28px;background: #d72502; color: #fff; text-align: center; display: block; font-weight: bold;}
+.index-14 .left ul .info{ position: absolute; left: 65px; top: 0;}
+.index-14 .left ul .info h3{ font-size: 15px; margin: 5px 0; font-weight: bold;word-break:keep-all;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;}
+.index-14 .left ul .info p{ font-size: 12px; color: #999;display: -webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow: hidden;line-height: 18px;}
+.index-14 .left ul .info p a{ color: #999;}
+.index-14 .left ul li:hover .info p a{ color: #ebebeb;}
+.index-14 .right ul{}
+.index-14 .right ul li{ position: relative; margin-bottom: 15px;}
+.index-14 .right ul li a:before{ width: 8px; height: 8px;background:#d72502; display: inline-block;content: ''; margin-right: 8px;}
+.index-14 .right ul li a{ display: block;word-break:keep-all;white-space:nowrap;text-overflow:ellipsis;overflow:hidden; width: 210px;}
+.index-14 .right ul li em{ color: #d72502; margin-right: 12px;}
+.index-14 .right ul li .date{ position: absolute; right: 0; top: 0; color: #999;}
+.index-15 .wrap{ /* padding: 40px 0 0px */}
+.index-15 ul{ width: 1000px; overflow: hidden;}
+.index-15 li{ float: left; margin:0 8px 8px 0;}
+.index-15 li img{width: 192px;max-width: none;max-height: none;}

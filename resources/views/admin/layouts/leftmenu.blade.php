@@ -67,6 +67,7 @@ $categoryA = Category::where('base_id',1)->orderby('number','asc')->get();
                 </a>
                 <ul class="side-ul-menu">
                     <li class="ad_position base-list"><a href="/base/config">网站基本设置</a></li>
+                    <li class="ad_position base-change"><a href="/base/change">网站模版切换</a></li>
                 </ul>
             </li>
         </ul>

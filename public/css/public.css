@@ -1,0 +1,120 @@
+.top{
+	width: 100%;
+	height: 30px;
+	background-color: #ededed;
+}
+.top .juzhong{
+	width: 1000px;
+	margin: 0 auto;
+	line-height: 30px;
+}
+.juzhong ul{
+	float: right;	
+}
+.juzhong ul li{
+	float: left;
+	margin-left: 20px;
+}
+.juzhong ul li a:hover{
+	text-decoration: underline;
+}
+.logo{
+	height: 130px;
+}
+.logo-l{
+	height: 130px;
+	line-height: 130px;
+	float: left;
+}
+.logo-l .logo-img img{
+	margin-top: 30px;
+}
+.logo-l .logo-img span{
+	font-size: 20px;
+	font-family: "微软黑体";
+}
+.logo-l .logo-img span i{
+	color: red;
+	font-weight: bold;
+	font-size: 22px;
+}
+.logo-r{
+	float: right;
+	margin-top: 30px;
+}
+.logo-r .logo-r-rexian{
+	display: block;
+}
+.logo-r .dianh{
+	display: block;
+	color: red;
+	font-weight: bold;
+	font-size:20px;
+}
+.nav{
+	background-color: #5b5758;
+	height: 50px;
+}
+.nav .nav-banner{
+	height: 50px;
+
+}
+.nav ul li{
+	float: left;
+}
+.nav ul li a{
+	color: #fff;
+	display: block;
+	height: 50px;
+	line-height: 50px;
+	margin-left: 10px;
+	font-weight: bold;
+	padding: 0px 15px 0px 15px;
+}
+.nav ul li .munber{
+	background-color: red;
+}
+.nav ul li a:hover{
+	background-color: red;
+
+}
+
+.dibusm{ line-height: 30px;
+    color: #333;
+    font-size: 12px;
+    padding-top: 15px;
+    margin-top: 13px;   
+    border-bottom: 1px solid #cdcdcd;    padding-bottom: 15px;}               
+.dibusm a{ color:#333; text-decoration:none;} 
+.dibubq{ line-height: 30px;
+    color: #333; width:700px; margin:0 auto; margin-top:20px;}
+.dibubq a{color:#333; text-decoration:none;}
+.dibusm a:hover,.dibubq a:hover{
+text-decoration:underline;}
+.tup{float: left;
+    width: 176px;
+    margin-top: 30px;}
+.wenzism{    float: left;
+    margin-left: 30px;
+    line-height: 26px;}   
+.eweim{    float: left;
+    margin-left: 20px;
+text-align:center;}         
+
+.sousuo{
+
+	width: 100%;
+	height: 55px;
+	
+}
+.sousou-center{
+	height: 55px;
+	line-height: 55px;
+}
+.sousou-center ul li{
+	float: left;
+	margin-right:20px;
+}
+.sousou-center ul li a:hover{
+	text-decoration: underline;
+}

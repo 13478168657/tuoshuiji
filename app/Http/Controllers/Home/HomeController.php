@@ -37,7 +37,6 @@ class HomeController extends Controller
         $baseConfig = BaseConfig::first();
         $data['baseConfig'] = $baseConfig;
         return view('home.index',$data);
-
     }
 
     public function lists($id){
@@ -80,6 +79,7 @@ class HomeController extends Controller
         return view('home.list',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize,'page'=>$page]);
         return view('home.list');
     }
+
     public function slists(){
         $word = Input::get('wd','');
         $page = Input::get('page',1);

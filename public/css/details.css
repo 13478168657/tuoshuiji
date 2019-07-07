@@ -3,7 +3,7 @@
     margin-bottom: 20px;
 }
 .news-l{
-    width: 850px;
+    width: 700px;
     float: left;
     background-color:#ffffff;
 }
@@ -20,10 +20,10 @@
     font-size: 14px;
 }
 .BreadNav a:hover{
-    color: #a5291f;
+    color: red;
 }
 .BreadNav .hover{
-    color: #a5291f;
+    color: red;
 }
 .mainLeft h1{
     font-size: 32px;
@@ -135,7 +135,7 @@
 .tag a{
     display: inline-block;
     padding: 10px;
-    background-color: #a5291f;
+    background-color: red;
     color: #ffffff;
     margin: 5px;
 }
@@ -149,7 +149,7 @@ p{
 }
 
 .content{
-	width:810px;
+	width:700px;
     margin-top:30px;
 }
 .xiangguan{
@@ -161,18 +161,18 @@ p{
 .xiangguan span{
     display: inline-block;
     padding-bottom:10px;
-    border-bottom:2px solid #a5291f;
+    border-bottom:2px solid red;
 }
 
 .yuedu-left{
     margin-left:20px;
     margin-top: 30px;
-    width: 400px;
+    width: 280px;
     float: left;
 }
 .yuedu-right{
     margin-top: 30px;
-    width: 400px;
+    width: 280px;
     float: right;
 }
 
@@ -184,7 +184,7 @@ p{
     color: #666;
 }
 .yuedu-left li a:hover{
-    color: #a5291f;
+    color: red;
 }
 
 
@@ -196,7 +196,7 @@ p{
     color: #666;
 }
 .yuedu-right li a:hover{
-    color: #a5291f;
+    color: red;
 }
 .shengming{
     border: 1px solid #e2e2e2;
