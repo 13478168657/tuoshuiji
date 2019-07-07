@@ -77,6 +77,7 @@ class ArticleController extends Controller
 
         $article->title = $request->input('title');
         $article->category_id = $category_id;
+        $article->is_english = $this->protectFlag;
 //        $article->number = intval($request->input('number'));
         $article->category_number = $category->category_num;
         $article->meta_description = $request->input('meta_description');
@@ -117,6 +118,7 @@ class ArticleController extends Controller
         $article = Article::where('id',$request->input('id'))->first();
         $key = $request->input('key');
         $article->title = $request->input('title');
+        $article->is_english = $this->protectFlag;
 //        $article->number = intval($request->input('number'));
         $article->meta_description = $request->input('meta_description');
         $article->meta_keyword = $request->input('meta_keyword');
