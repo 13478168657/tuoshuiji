@@ -31,6 +31,7 @@ class CategoryController extends Controller
         $category->base_id = $base_id;
         $category->number = intval($request->input('number'));
         $category->name = $request->input('name');
+        $category->english_name = $request->input('english_name');
         $category->meta_title = $request->input('meta_title');
         $category->meta_description = $request->input('meta_description');
         $category->meta_keyword = $request->input('meta_keyword');
@@ -57,6 +58,7 @@ class CategoryController extends Controller
         $category = Category::where('id',$id)->first();
         $category->number = intval($request->input('number'));
         $category->name = $request->input('name');
+        $category->english_name = $request->input('english_name');
         $category->meta_title = $request->input('meta_title');
         $category->meta_description = $request->input('meta_description');
         $category->meta_keyword = $request->input('meta_keyword');

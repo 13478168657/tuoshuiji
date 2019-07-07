@@ -1,7 +1,9 @@
 <?php
 
 use App\Models\Category;
+use App\Models\ProjectModel;
 $categoryA = Category::where('base_id',1)->orderby('number','asc')->get();
+$projectType = ProjectModel::first();
 ?>
 <div id="sidebar">
     <nav class="sidebar">
@@ -22,9 +24,19 @@ $categoryA = Category::where('base_id',1)->orderby('number','asc')->get();
                     <i class="glyphicon toggle-icon glyphicon-menu-down"></i>
                 </a>
                 <ul class="side-ul-menu">
+                    @if($projectType->type == 0)
                     @foreach($categoryA as $k => $catA)
-                    <li name="sss" class="ad_position putao_{{$k}}"><a href="/manage/info?key={{$k}}&id={{$catA->category_num}}">{{$catA->name}}</a></li>
+                    <li name="sss" class="ad_position putao_{{$k}}">
+                        <a href="/manage/info?key={{$k}}&id={{$catA->category_num}}">{{$catA->name}}</a>
+                    </li>
                     @endforeach
+                    @else
+                        @foreach($categoryA as $k => $catA)
+                            <li name="sss" class="ad_position putao_{{$k}}">
+                                <a href="/manage/info?key={{$k}}&id={{$catA->category_num}}">{{$catA->english_name}}</a>
+                            </li>
+                        @endforeach
+                    @endif
                     <li class="manage_base1"><a href="/category/list?base_id=1">分类管理</a></li>
                 </ul>
             </li>

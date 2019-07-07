@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\ArticleClassify;
+use App\Models\ProjectModel;
 use App\Utils\ClassifyUtil;
 use App\Utils\ImageUpload;
 use Validation;
@@ -18,7 +19,7 @@ class ArticleController extends Controller
      */
     public function __construct()
     {
-        
+        $this->protectFlag = ProjectModel::first()->type;
     }
 
     /**
@@ -44,6 +45,11 @@ class ArticleController extends Controller
         if($request->input('end_time')){
             $article = $article->where('created_at','<=',$request->input('end_time'));
         }
+        if($this->protectFlag == 0){
+            $article = $article->where('is_english',0);
+        }else{
+            $article = $article->where('is_english',1);
+        }
         $article = $article->where('category_number',$category_number);
         $articles = $article->orderBy('created_at','desc')->paginate(10);
         return view('admin.articles.list',['articles'=>$articles,'request'=>$request,'category'=>$category,'key'=>$key]);
@@ -53,7 +59,11 @@ class ArticleController extends Controller
         $key = $request->input('key');
         $classify = ArticleClassify::get();
         $classifyList = ClassifyUtil::getTree($classify ,0,0);
-        return view('admin.articles.add',['classifies'=>$classifyList,'category_id'=>$request->input('pid'),'key'=>$key]);
+        if($this->protectFlag == 0){
+            return view('admin.articles.add',['classifies'=>$classifyList,'category_id'=>$request->input('pid'),'key'=>$key]);
+        }else{
+            return view('admin.articles.englishAdd',['classifies'=>$classifyList,'category_id'=>$request->input('pid'),'key'=>$key]);
+        }
     }
     /*
      * 添加文章
