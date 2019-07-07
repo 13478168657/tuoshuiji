@@ -109,7 +109,11 @@ class ArticleController extends Controller
         $article = Article::where('id',$id)->first();
         $classify = ArticleClassify::get();
         $classifyList = ClassifyUtil::getTree($classify ,0,0);
-        return view('admin.articles.edit',['article'=>$article,'classifies'=>$classifyList,'category_id'=>$category_id,'key'=>$key]);
+        if($this->protectFlag == 0){
+            return view('admin.articles.edit',['article'=>$article,'classifies'=>$classifyList,'category_id'=>$category_id,'key'=>$key]);
+        }else{
+            return view('admin.articles.englishEdit',['article'=>$article,'classifies'=>$classifyList,'category_id'=>$category_id,'key'=>$key]);
+        }
     }
     /*
      * 编辑处理
