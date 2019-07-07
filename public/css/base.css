@@ -1,0 +1,194 @@
+.w {
+     width: 1200px;
+     margin: 0 auto;
+ }
+body{
+    font-family: "微软雅黑";
+    background-color: #fff;
+    font-size: 14px;
+
+}
+*{
+    padding: 0;
+    margin:0;
+    font-weight: 400;
+}
+
+.fr {
+    float: right;
+}
+
+.fl {
+    float: left;
+}
+li{
+    list-style: none;
+    text-decoration: none;
+}
+input ,button{
+    padding: 0;
+    border: none;
+}
+h5,h1,p{
+    margin: 0;
+    padding:0;
+}
+
+a{
+    text-decoration: none;
+}
+.clearfix:before,.clearfix:after{
+    content: "";
+    display: table;
+}
+.clearfix:after{
+    clear: both;
+}
+.clearfix{
+    *zoom:1;
+}
+img{
+    vertical-align: top;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+li{
+    text-decoration: none;
+}
+/*header start*/
+.header-top{
+    min-width: 1200px;
+    color: #aaa;
+    background-color: #F3F3F3;
+    height: 30px;
+    line-height: 30px;
+}
+
+.header-top-c li{
+    float: left;
+}
+.header-top-c span{
+    float: left;
+}
+.header-top-c li a{
+    display: block;
+    color: #000;
+    height: 30px;
+    line-height: 30px;
+    padding:0px 10px 0 10px;
+
+}
+.header{
+    background-color: #ffffff;
+}
+.header-top-c{
+    background-color: #F3F3F3;
+}
+.header-top h2{
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.logo{
+    width: 330px;
+    height: 90px;
+    float: left;
+}
+.logo img{
+    width: 100%;
+}
+.logo-left{
+    width: 506px;
+    height: 100px;
+    float: left;
+    margin-left: 10px;
+}
+.logo-left img{
+    width: 100%;
+}
+.logo-right{
+    float: right;
+
+}
+.logo-right img{
+    width: 100%;
+    margin-top: 6px;
+}
+.nav{
+    min-width: 1200px;
+    color: #aaa;
+    background-color: #a5291f;
+    height: 45px;
+    line-height: 45px;
+}
+.nav-c li{
+    float: left;
+}
+.nav-c span{
+    float: left;
+}
+.nav-c li a{
+    display: block;
+    color: #fff;
+    height: 45px;
+    line-height: 45px;
+    padding:0px 20px 0 20px;
+    font-size: 16px;
+}
+.nav .ziti{
+    background-color:rgba(102,51,51);
+}
+.nav-c li a:hover{
+    background-color:rgba(102,51,51);
+	text-shadow:1px 0px 1px #fff;
+}
+/*header end*/
+.content{
+    width: 1200px;
+    margin: 0 auto;
+    /*height: 300px;*/
+}
+/*footer start*/
+.footer-nav{
+    min-width: 1200px;
+    background-color:#e2e2e2;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #888888;
+    font-size: 18px;
+}
+
+#footer{ background:#f0f0f0; padding:20px 0}
+#footer table.table{ width:1280px; margin:0 auto;}
+#footer table.table th{ border-right:solid 1px #ccc;}
+#footer table.wx{ width:360px; margin:10px auto 0 auto}
+#footer table.wx td{ text-align:center;}
+#footer table.wx td p{ font-size:12px; font-weight:100; line-height:16px; color:#444; text-align:center;}
+#footer table.table dl.copyright{ width:560px; margin:0 auto 10px auto;}
+#footer table.table dl.copyright dt{ width:120px; float:left; text-align:right; font-weight:bold; font-size:15px;}
+#footer table.table dl.copyright dd{ padding:0 10px 0 130px; font-size:16px; line-height:23px; color:#444; font-weight:100; text-align:left}
+#footer table.table dl.copyright dd a{ color:#444; padding:0 5px;}
+#footer table.table dl.copyright dd a:hover{ color:#a5291f; text-decoration:underline;}
+#footer table.table2 { width:1280px; margin:10px auto;}
+#footer table.table2 dl.copyright{ width:1280px; margin:10px auto;}
+#footer table.table2 dl.copyright dt{ width:100px; float:left; text-align:center; font-weight:bold; font-size:18px;}
+#footer table.table2 dl.copyright dd{ padding:0 10px 0 110px; font-size:16px; line-height:23px; color:#444; font-weight:100; text-align:left}
+#footer table.table2 dl.copyright dd a{ color:#444; padding:0 5px;}
+#footer table.table2 dl.copyright dd a:hover{ color:#a5291f; text-decoration:underline;}
+#footer table.table td.table_co{ vertical-align:top; padding:10px 0 0 20px;}
+#footer table.table td.table_co h5{ font-size:18px; color:#444; line-height:30px; font-weight:bold;}
+#footer table.table td.table_co p{ font-size:16px; line-height:25px; color:#333;}
+.footer{ padding:10px 0; font-size:16px; line-height:25px; color:#333; position:relative;}
+.footer a{ color:#333; padding:0 5px;}
+.footer a:hover{ color:#a5291f;}
+.footer p.copyright{ color:#666; padding:0 5px}
+.footer i{ position:absolute;}
+.footer i#icp{ top:20px; right:80px; font-size:12px; line-height:17px; color:#555; text-align:center;}
+.footer i#icp a{ color:#555;}
+.footer i#icp a:hover{ text-decoration:underline;}
+.footer i#zjaic{ top:0px; right:0px;}
+
+/*footer end*/
