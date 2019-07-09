@@ -17,9 +17,7 @@ class HomeController extends Controller
 {
 
     public function index(){
-//        if($this->isMobile()){
-//            return redirect('/h/index');
-//        }
+
         $data['secondNews'] = Article::where('category_id',6)->where('status',3)->OrderBy('id','desc')->take(12)->skip(1)->get();
         $data['firstNews'] = Article::where('category_id',6)->where('status',3)->OrderBy('id','desc')->first();
         $data['thirdNews'] = Article::where('category_id',6)->where('status',3)->OrderBy('id','desc')->take(2)->skip(13)->get();

@@ -1,77 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+@extends('layouts.main')
+
+@section('title')
     <title>江苏思科尼恩环保科技有限公司</title>
-    <link rel="stylesheet" href="/css/base.css">
-    <link rel="stylesheet" href="/css/public.css">
-    <!--轮播图-->
-    <link rel="stylesheet" href="/dist/pageSwitch.min.css">
+@endsection
+
+@section('css')
     <link rel="stylesheet" href="/css/list.css">
     <link rel="stylesheet" href="/css/details.css">
-</head>
-<body>
-<div class="top">
-    <div class="juzhong">
-        您好，欢迎来到江苏思科尼恩环保科技有限公司
-        <ul>
-            <li><a href="">中文</a></li>
-            <li><a href="">英文</a></li>
-        </ul>
-    </div>
-</div>
-<div class="logo w">
-    <div class="logo-l">
-        <div class="logo-img">
-            <a href=""><img src="images/logo.jpg" alt=""></a>
-            <strong><span>脱水率达<i>99%</i>的设备制定厂家</span></strong>
-        </div>
-    </div>
-    <div class="logo-r">
-        <span class="logo-r-rexian">全国服务热线：</span>
-        <span class="dianh">138-6592-9250</span>
-        <span class="dianh">400-1199-8611</span>
-    </div>
-</div>
+@endsection
 
-<!--导航开始 strat-->
-<div class="nav">
-    <ul class="nav-banner w">
-        <li><a href="" class="munber">网站首页</a></li>
-        <li><a href="">产品展示</a></li>
-        <li><a href="">视频中心</a></li>
-        <li><a href="">成功案例</a></li>
-        <li><a href="">服务支持</a></li>
-        <li><a href="">污泥脱水机</a></li>
-        <li><a href="">企业新闻</a></li>
-        <li><a href="">行业资讯</a></li>
-        <li><a href="">公司简介</a></li>
-    </ul>
-</div>
-<div id="container">
-    <div class="sections">
-        <div class="section" id="section0"></div>
-        <div class="section" id="section1"></div>
-        <div class="section" id="section2"></div>
-        <div class="section" id="section3"></div>
-    </div>
-</div>
-<!--导航结束 end-->
-<div class="sousuo">
-    <div class="sousou-center w">
-        <ul>
-            <li><strong>热门关键词：</strong></li>
-            <li><a href="">脱水机</a></li>
-            <li><a href="">脱水机</a></li>
-            <li><a href="">脱水机</a></li>
-            <li><a href="">脱水机</a></li>
-            <li><a href="">脱水机</a></li>
-            <li><a href="">脱水机</a></li>
-            <li><a href="">脱水机</a></li>
-            <li><a href="">脱水机</a></li>
-        </ul>
-    </div>
-</div>
+@section('content')
 <div class="list w">
     <div class="left-l">
         <div class="left-r">
@@ -194,67 +132,8 @@
     </div>
 </div>
 <div style="clear:both"></div>
-<!--footer strat-->
-<div class="nav">
-    <ul class="nav-banner w">
-        <li><a href="" class="munber">网站首页</a></li>
-        <li><a href="">产品展示</a></li>
-        <li><a href="">视频中心</a></li>
-        <li><a href="">成功案例</a></li>
-        <li><a href="">服务支持</a></li>
-        <li><a href="">污泥脱水机</a></li>
-        <li><a href="">企业新闻</a></li>
-        <li><a href="">行业资讯</a></li>
-        <li><a href="">公司简介</a></li>
-    </ul>
-</div>
-<!--footer end-->
-<!--本站服务start-->
-
-<div class="dibusm w">
-    本站业务：<a href="product_148.html">塑料脱水机</a> <a href="product_162.html">蔬菜脱水机</a> &nbsp;<a href="product_108_2.html">不锈钢脱水机</a> <a href="product_view_49_207.html">小型脱水机</a> <a href="product_108.html">工业脱水机</a> <a href="product_179.html">离心脱水机</a> <a href="product_198.html">工业甩干机</a> &nbsp;<a href="product_205.html">地毯脱水机</a> 塑料甩干机  蔬菜甩干机  床单甩干机  圆振动筛 广东振动筛 <a href="product_view_63_198.html">脱水机配件</a> 脱水机维修 立式脱水机 脱水机价格 塑料片脱水机 塑料粒脱水机 毛巾脱水机 毛巾甩干机 蔬菜甩水机 &nbsp;汽车美容脱水机<br>
-</div>
-<!--本站服务end-->
-<div class="dibubq " >
-    <div class="tup">
-        <img src="/images/logo-1.jpg" alt="东莞环鑫机械" style="margin-right:10px;margin-bottom:5px;" align="left"> <br>
-        <p style="font-size:30px;font-weight:bold;text-align:center;">
-            环鑫机械
-        </p>
-    </div>
-    <div class="wenzism">
-        版权所有 © 2016东莞市环鑫机械有限公司<br>
-        公司地址：东莞市清溪镇清凤路21号 <br>
-        联系电话：0769-81262961 传 真：0769-81262962<br>
-        业务咨询：137 1199 8611 林先生（机械工程师）<br>
-        备案号：粤ICP备15073682号-1
-
-    </div>
-    <div class="eweim">
-        <img src="/images/2016912191725589.jpg" alt="微信公众号二维码" width="105">
-        <p>
-            扫一扫关注我们
-        </p>
-    </div>
-</div>
-
-
-
+    @include('layouts.footer')
 </div>
 
 </div>
-<!--轮播图strat-->
-<script src="/js/jquery-1.11.0.min.js" type="text/javascript"></script>
-<script src="/dist/pageSwitch.min.js"></script>
-<script>
-    $("#container").PageSwitch({
-        direction:'horizontal',
-        easing:'ease-in',
-        duration:1000,
-        autoPlay:true,
-        loop:'false'
-    });
-</script>
-<!--轮播图end-->
-</body>
-</html>
+@endsection

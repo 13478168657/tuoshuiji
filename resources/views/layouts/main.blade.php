@@ -4,41 +4,32 @@
 	<meta charset="UTF-8">
 	@yield('title')
 	@yield('css')
-	<link rel="stylesheet" href="/css/base.css">
 	{{--<link rel="stylesheet" href="/css/normalize.css">--}}
-	<link rel="stylesheet" href="/css/global.css">
-	<link rel="stylesheet" href="/css/index.css">
-	<script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
-	<script>
-		$(function(){
-			$('#friendlinks i:last').remove();
-			$('.slides li:first div:gt(4)').appendTo($('.slides li:eq(1)'));
-		})
-		function randomsort(a, b) {
-			return Math.random()>.5 ? -1 : 1;
-		}
-	</script>
+	<link rel="stylesheet" href="/css/base.css">
+	<link rel="stylesheet" href="/css/public.css">
+	<!--轮播图-->
+	<link rel="stylesheet" href="/dist/pageSwitch.min.css">
 	<meta name="baidu-site-verification" content="UIwf5p0taI" />
 	<script type="text/javascript">  
-		 //平台、设备和操作系统  
-		 var system = {  
-		 win: false,
-		 mac: false,  
-		 xll: false,  
-		 ipad:false
-		 };  
-		 //检测平台  
-		 var p = navigator.platform;  
-		 system.win = p.indexOf("Win") == 0;  
-		 system.mac = p.indexOf("Mac") == 0;  
-		 system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);  
-		 system.ipad = (navigator.userAgent.match(/iPad/i) != null)?true:false;  
-		 //跳转语句，如果是手机访问就自动跳转到wap.baidu.com页面  
-		 if (system.win || system.mac || system.xll||system.ipad) {  
-		   } else {  
-			window.location.href = "http://m.qimenhongcha.com.cn";
-		 }  
-		   </script>  
+		 //平台、设备和操作系统
+//		 var system = {
+//		 win: false,
+//		 mac: false,
+//		 xll: false,
+//		 ipad:false
+//		 };
+//		 //检测平台
+//		 var p = navigator.platform;
+//		 system.win = p.indexOf("Win") == 0;
+//		 system.mac = p.indexOf("Mac") == 0;
+//		 system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+//		 system.ipad = (navigator.userAgent.match(/iPad/i) != null)?true:false;
+//		 //跳转语句，如果是手机访问就自动跳转到wap.baidu.com页面
+//		 if (system.win || system.mac || system.xll||system.ipad) {
+//		   } else {
+//			window.location.href = "http://m.qimenhongcha.com.cn";
+//		 }
+	</script>
 </head>
 <body>
 <script>
@@ -58,42 +49,21 @@
 @include('layouts.header')
 
 @yield('content')
-<!--轮播图  end-->
-<!--footer start-->
-<!--footer end-->
+
 @yield('footer')
 @yield('script')
-<script src="/js/jquery.min.js"></script>
-<script src="/js/ft-carousel.min.js"></script>
-<script type="text/javascript">
-	$("#carousel_1").FtCarousel();
-
-	$("#carousel_2").FtCarousel({
-		index: 1,
-		auto: false
-	});
-
-	$("#carousel_3").FtCarousel({
-		index: 0,
-		auto: true,
-		time: 3000,
-		indicators: false,
-		buttons: true
+<!--轮播图strat-->
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script src="dist/pageSwitch.min.js"></script>
+<script>
+	$("#container").PageSwitch({
+		direction:'horizontal',
+		easing:'ease-in',
+		duration:1000,
+		autoPlay:true,
+		loop:'false'
 	});
 </script>
-
-<script type="text/javascript" src="js/slider.js"></script>
-<script type="text/javascript">
-
-	$(document).ready(function() {
-		//美图切换
-		$('#demo01').flexslider({
-			animation: "slide",
-			direction:"horizontal",
-			easing:"swing"
-		});
-	});
-
-</script>
+<!--轮播图end-->
 </body>
 </html>
