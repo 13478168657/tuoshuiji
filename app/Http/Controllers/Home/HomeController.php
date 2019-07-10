@@ -23,7 +23,7 @@ class HomeController extends Controller
         $data['commonQuestions'] = Article::where('category_id',9)->where('status',3)->OrderBy('id','desc')->take(2)->skip(13)->get();//常见问题
 
         $data['newsActives'] = Article::where('category_id',6)->where('status',3)->OrderBy('id','desc')->take(6)->get();//新闻动态
-        
+
         $data['lunbo'] = Advertisement::where('position_id',4)->get();
         $data['publicNews'] = Article::where('category_id',14)->where('status',3)->orderBy('id','desc')->take(3)->get();
         $baseConfig = BaseConfig::first();
@@ -32,7 +32,7 @@ class HomeController extends Controller
     }
 
     public function lists($id){
-        $position = strpos($id, 's');;
+        $position = strpos($id, 's');
 
         if($position < 0 || $position === false){
             $id = $id;
