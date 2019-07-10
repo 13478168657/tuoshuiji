@@ -18,18 +18,12 @@ class HomeController extends Controller
 
     public function index(){
 
-        $data['secondNews'] = Article::where('category_id',6)->where('status',3)->OrderBy('id','desc')->take(12)->skip(1)->get();
-        $data['firstNews'] = Article::where('category_id',6)->where('status',3)->OrderBy('id','desc')->first();
-        $data['thirdNews'] = Article::where('category_id',6)->where('status',3)->OrderBy('id','desc')->take(2)->skip(13)->get();
-        $data['currentNews'] = Article::where('status',3)->orderBy('id','desc')->take(7)->get();
-        $data['knowNews'] = Article::where('category_id',9)->where('status',3)->OrderBy('id','desc')->take(6)->get();
-        $data['priceNews'] = Article::where('category_id',1)->where('status',3)->OrderBy('id','desc')->take(9)->get();
-//        dd($data['priceNews']);
-        $data['fillNews'] = Article::where('category_id',2)->where('status',3)->OrderBy('id','desc')->take(9)->get();
-        $data['brandNews'] = Article::where('category_id',12)->where('status',3)->OrderBy('id','desc')->take(5)->get();
-        $data['studyNews'] = Article::where('category_id',13)->where('status',3)->OrderBy('id','desc')->take(9)->get();
-        $data['effectNews'] = Article::where('category_id',4)->where('status',3)->OrderBy('id','desc')->take(5)->get();
-        $data['imageNews'] = Article::where('category_id',11)->where('status',3)->OrderBy('id','desc')->take(10)->get();
+        $data['productShow'] = Article::where('category_id',1)->where('status',3)->OrderBy('id','desc')->take(12)->skip(1)->get();//产品展示
+        $data['successExamples'] = Article::where('category_id',3)->where('status',3)->OrderBy('id','desc')->first();//成功案例
+        $data['commonQuestions'] = Article::where('category_id',9)->where('status',3)->OrderBy('id','desc')->take(2)->skip(13)->get();//常见问题
+
+        $data['newsActives'] = Article::where('category_id',6)->where('status',3)->OrderBy('id','desc')->take(6)->get();//新闻动态
+        
         $data['lunbo'] = Advertisement::where('position_id',4)->get();
         $data['publicNews'] = Article::where('category_id',14)->where('status',3)->orderBy('id','desc')->take(3)->get();
         $baseConfig = BaseConfig::first();

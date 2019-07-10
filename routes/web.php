@@ -224,5 +224,3 @@ Route::group(['domain' => '{account}.tsj.com'], function () {
     });
 
 });
-
-
