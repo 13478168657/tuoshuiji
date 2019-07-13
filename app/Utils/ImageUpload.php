@@ -53,6 +53,6 @@ class ImageUpload{
         return $fi.'.'.$extension;
     }
     private function getUploadDirectory(){
-        return '/Users/yangzhengxing/htdocs/hongcha/public/uploads/thumb/';
+        return public_path().'/uploads/thumb/';
     }
 }

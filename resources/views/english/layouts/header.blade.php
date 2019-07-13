@@ -43,12 +43,12 @@ $categories = Category::take(9)->orderBy('number','desc')->get();
     </ul>
 </div>
 <div id="container">
-    {{--<div class="sections">--}}
-        {{--<div class="section" id="section0"></div>--}}
-        {{--<div class="section" id="section1"></div>--}}
-        {{--<div class="section" id="section2"></div>--}}
-        {{--<div class="section" id="section3"></div>--}}
-    {{--</div>--}}
+    <div class="sections">
+        <div class="section" id="section0"></div>
+        <div class="section" id="section1"></div>
+        <div class="section" id="section2"></div>
+        <div class="section" id="section3"></div>
+    </div>
 </div>
 <!--导航结束 end-->
 <div class="sousuo">

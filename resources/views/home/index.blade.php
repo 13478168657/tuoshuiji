@@ -57,6 +57,7 @@
                 <span>叠螺式污泥脱水机+粉体自动溶解泡药机+螺旋输送机+格栅除污机设备</span> </div>
             <div class="line show-list">
                 <div class="line-big show-product  not-animated"  data-animate="bounceIn" data-delay="200">
+
                     @foreach($successExamples as $success)
                     <div class="xm3 xs3 xl6 margin-big-bottom text-center"><a href="/thread-{{$success->id}}.html" title="{{$success->title}}">
                             <div class="media-img" style="height: 140px;">
@@ -104,7 +105,7 @@
                 <h3>新闻动态</h3>
                 <a href="/index6.html" class="more">更多+</a> </div>
             <div class="group clearfix">
-                <div class="img fl"><img src="/images/p.jpg" alt="健身行业新闻动态" width="112px;" height="112px;"></div>
+                <div class="img fl"><img src="/images/p.jpg" alt="新闻动态" width="112px;" height="112px;"></div>
                 <ul class="fl">
                     @foreach($newsActives as $news)
                     <li>

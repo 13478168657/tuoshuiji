@@ -22,7 +22,9 @@ Route::group(['domain' => '{account}.tsj.com'], function () {
             return $home->index();
         }
     });
-//    dd(3);
+    Route::get('/en','Home\EnHomeController@index');
+    Route::get('/en/index{id}.html','Home\EnHomeController@lists');
+    Route::get('/en/thread-{id}.html','Home\EnHomeController@detail');
     Route::get('/index{id}.html', function ($account,$id) {
 //        dd($account);
 //        dd(1);

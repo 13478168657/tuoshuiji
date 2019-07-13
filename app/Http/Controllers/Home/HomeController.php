@@ -18,11 +18,11 @@ class HomeController extends Controller
 
     public function index(){
 
-        $data['productShow'] = Article::where('category_id',1)->where('status',3)->OrderBy('id','desc')->take(12)->skip(1)->get();//产品展示
-        $data['successExamples'] = Article::where('category_id',3)->where('status',3)->OrderBy('id','desc')->first();//成功案例
-        $data['commonQuestions'] = Article::where('category_id',9)->where('status',3)->OrderBy('id','desc')->take(2)->skip(13)->get();//常见问题
+        $data['productShow'] = Article::where('category_id',1)->where('is_english',0)->where('status',3)->OrderBy('id','desc')->take(12)->skip(1)->get();//产品展示
+        $data['successExamples'] = Article::where('category_id',3)->where('is_english',0)->where('status',3)->OrderBy('id','desc')->get();//成功案例
+        $data['commonQuestions'] = Article::where('category_id',9)->where('is_english',0)->where('status',3)->OrderBy('id','desc')->take(2)->skip(13)->get();//常见问题
 
-        $data['newsActives'] = Article::where('category_id',6)->where('status',3)->OrderBy('id','desc')->take(6)->get();//新闻动态
+        $data['newsActives'] = Article::where('category_id',6)->where('is_english',0)->where('status',3)->OrderBy('id','desc')->take(6)->get();//新闻动态
 
         $data['lunbo'] = Advertisement::where('position_id',4)->get();
         $data['publicNews'] = Article::where('category_id',14)->where('status',3)->orderBy('id','desc')->take(3)->get();
@@ -60,14 +60,15 @@ class HomeController extends Controller
             $skip = ($page-1)*$pageSize;
         }
         $category =  Category::where('id',$id)->first();
+//        dd($category);
         $categories = Category::where('base_id',1)->where('id','!=',$category->id)->orderBy('number','desc')->limit(3)->get();
-        $articles = Article::where('status',3)->where('category_id',$id)->orderBy('created_at','desc')->take($pageSize)->skip($skip)->get();
-        $total = Article::where('status',3)->where('category_id',$id)->orderBy('created_at','desc')->select('id')->count();
+        $articles = Article::where('status',3)->where('is_english',0)->where('category_id',$id)->orderBy('created_at','desc')->take($pageSize)->skip($skip)->get();
+        $total = Article::where('status',3)->where('category_id',$id)->where('is_english',0)->orderBy('created_at','desc')->select('id')->count();
 //        dd(3);
         $pageSize = PageUtil::getPage($page,$total,$pageSize,$id,'s');
-        if($id == 11){
-            return view('home.imgList',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize,'page'=>$page]);
-        }
+//        if($id == 11){
+//            return view('home.imgList',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize,'page'=>$page]);
+//        }
         return view('home.list',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize,'page'=>$page]);
         return view('home.list');
     }
@@ -95,9 +96,10 @@ class HomeController extends Controller
         $category =  Category::where('id',$article->category_id)->first();
         $nextArticle = Article::where('id',$id+1)->first();
         $prevArticle = Article::where('id',$id-1)->first();
-        $articles = Article::where('category_id',$article->category_id)->take(10)->orderBy('id','desc')->get();
+        $articles1 = Article::where('category_id',$article->category_id)->take(4)->where('id','!=',$article->id)->orderBy('id','desc')->get();
+        $articles2 = Article::where('category_id',$article->category_id)->take(4)->where('id','!=',$article->id)->orderBy('id','desc')->get();
         $categories = Category::where('base_id',1)->where('id','!=',$article->category_id)->orderBy('number','desc')->take(3)->get();
-        return view('home.detail',['article'=>$article,'categories'=>$categories,'category'=>$category,'nextArticle'=>$nextArticle,'prevArticle'=>$prevArticle,'articles'=>$articles]);
+        return view('home.detail',['article'=>$article,'categories'=>$categories,'category'=>$category,'nextArticle'=>$nextArticle,'prevArticle'=>$prevArticle,'articles1'=>$articles1,'articles2'=>$articles2]);
         return view('home.detail');
     }
 
@@ -112,63 +114,7 @@ class HomeController extends Controller
         return view('home.goodsDetail',['goods'=>$goods,'categories'=>$categories,'category'=>$category,'nextGoods'=>$nextGoods,'prevGoods'=>$prevGoods]);
     }
 
-    public function hindex(){
 
-        $data['news'] = Article::where('category_id',6)->where('status',3)->OrderBy('id','desc')->take(7)->get();
-        $data['knowNews'] = Article::where('category_id',12)->where('status',3)->OrderBy('id','desc')->take(7)->get();
-        $data['priceNews'] = Article::where('category_id',1)->where('status',3)->OrderBy('id','desc')->take(7)->get();
-        $data['fillNews'] = Article::where('category_id',2)->where('status',3)->OrderBy('id','desc')->take(7)->get();
-        $data['brandNews'] = Article::where('category_id',9)->where('status',3)->OrderBy('id','desc')->take(7)->get();
-        $data['studyNews'] = Article::where('category_id',13)->where('status',3)->OrderBy('id','desc')->take(7)->get();
-        $data['plantNews'] = Article::where('category_id',10)->where('status',3)->OrderBy('id','desc')->take(6)->get();//种植新闻
-        $data['effectNews'] = Article::where('category_id',4)->where('status',3)->OrderBy('id','desc')->take(7)->get();
-        $data['imageNews'] = Article::where('category_id',11)->where('status',3)->OrderBy('id','desc')->take(6)->get();
-        $data['lunbo'] = Advertisement::where('position_id',4)->get();
-        $baseConfig = BaseConfig::first();
-        $data['baseConfig'] = $baseConfig;
-//        dd($data['knowNews']);
-        return view('h5.home.index',$data);
-    }
-
-    public function hlist($id){
-        $position = strpos($id, 's');
-
-        if($position < 0 || $position === false){
-            $id = $id;
-            $page=1;
-        }else{
-            $info = $id;
-            $id = substr($info, 0,strpos($info, 's'));
-            $page = substr($info,strpos($info, 's')+1);
-        }
-//        $request->page = $page;
-        $pageSize = 8;
-        $skip = ($page - 1)*$pageSize;
-        $category =  Category::where('id',$id)->first();
-        $categories = Category::where('base_id',1)->where('id','!=',$category->id)->orderBy('number','desc')->limit(3)->get();
-        $articles = Article::where('status',3)->where('category_id',$id)->orderBy('created_at','desc')->skip($skip)->take($pageSize)->get();
-        $total = Article::where('status',3)->where('category_id',$id)->orderBy('created_at','desc')->select('id')->count();
-        $pageSize = PageUtil::gethPage($page,$total,$pageSize,$id,'s');
-
-        if($id == 11){
-            return view('h5.home.imgList',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize,'page'=>$page]);
-        }
-        return view('h5.home.list',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize,'page'=>$page]);
-    }
-
-    public function hdetail($id){
-
-        $article = Article::where('id',$id)->first();
-        $article->visit_num = $article->visit_num+1;
-        $article->save();
-        $category =  Category::where('id',$article->category_id)->first();
-        $nextArticle = Article::where('id',$id+1)->first();
-        $prevArticle = Article::where('id',$id-1)->first();
-        $articles = Article::where('category_id',$article->category_id)->take(6)->orderBy('id','desc')->get();
-        $categories = Category::where('base_id',1)->where('id','!=',$article->category_id)->orderBy('number','desc')->take(3)->get();
-//        return view('home.detail',['article'=>$article,'categories'=>$categories,'category'=>$category,'nextArticle'=>$nextArticle,'prevArticle'=>$prevArticle,'articles'=>$articles]);
-        return view('h5.home.detail',['article'=>$article,'categories'=>$categories,'category'=>$category,'nextArticle'=>$nextArticle,'prevArticle'=>$prevArticle,'articles'=>$articles]);
-    }
 
 
     public function isMobile()

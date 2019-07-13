@@ -5,6 +5,8 @@
 @endsection
 
 @section('css')
+    <link rel="stylesheet" href="/css/index-14.css">
+    <link rel="stylesheet" href="/css/index-15.css">
     <link rel="stylesheet" href="/css/list.css">
     <link rel="stylesheet" href="/css/details.css">
 @endsection
@@ -44,23 +46,21 @@
                     <div class="BreadNav">
                         <a href="/">您当前位置：</a><a href="/index2.html">首页</a>	>	<a href="/index2.html">联系我们</a>	>	<a href="/index2.html">叠螺机在节能减排方面的优势</a>
                     </div>
-                    <h1>叠螺机在节能减排方面的优势</h1>
+                    <h1>{{$article->title}}</h1>
                     <div class="font2 adimg">
-                        <span>发布日期：2016-08-27 17:06:11</span>
-                        <span>出处：花百科网</span>
-                        <span>作者：养花大全花花</span>
-                        <span>阅读：7452</span>
+                        <span>发布日期：{{date('Y-m-d H:i:s',strtotime($article->created_at))}}</span>
+                        <span>出处：{{$article->source}}</span>
+                        <span>作者：{{$article->author}}</span>
+                        <span>阅读：{{$article->visit_num}}</span>
                     </div>
                     <div class="content clearfix">
-                        <p>叠螺机的优势是安装方便，改装性强，基本可以按照施工环境改变入口方向，其简单的操作和设计的灵活性，深受用户的信赖。但，有的用户在使用一段时间后，发现叠螺机偶尔也会发生流速慢的现象，这在一定程度上降低了叠螺机的运行效率。造成流速变慢的主要原因：叠螺机的优势是安装方便，改装性强，基本可以按照施工环境改变入口方向，其简单的操作和设计的灵活性，深受用户的信赖。但，有的用户在使用一段时间后，发现叠螺机偶尔也会发生流速慢的现象，这在一定程度上降低了叠螺机的运行效率。造成流速变慢的主要原因：　　 </p>
-                        <br>
-                        <p>叠螺机的优势是安装方便，改装性强，基本可以按照施工环境改变入口方向，其简单的操作和设计的灵活性，深受用户的信赖。但，有的用户在使用一段时间后，发现叠螺机偶尔也会发生流速慢的现象，这在一定程度上降低了叠螺机的运行效率。造成流速变慢的主要原因：叠螺机的优势是安装方便，改装性强，基本可以按照施工环境改变入口方向，其简单的操作和设计的灵活性，深受用户的信赖。但，有的用户在使用一段时间后，发现叠螺机偶尔也会发生流速慢的现象，这在一定程度上降低了叠螺机的运行效率。造成流速变慢的主要原因：</p>　　
-                        　　
-                        　
+                        <?php
+                            echo htmlspecialchars_decode($article->content);
+                        ?>
                     </div>
                     <div class="connext adimg ">
-                        <span class="nextup">上一页：<a href="/cyyh/5070.html">叠螺机在节能减排方面的优势</a></span>
-                        <span class="next">下一页：<a href="/cyyh/5080.html">叠螺机在节能减排方面的优势</a></span>
+                        <span class="nextup">上一页：<a href="/thread-{{$prevArticle->id}}.html">{{$prevArticle->title}}</a></span>
+                        <span class="next">下一页：<a href="/thread-{{$nextArticle->id}}.html">{{$nextArticle->title}}</a></span>
                     </div>
                 </div>
                 <div class="yuedu">
@@ -68,60 +68,26 @@
                 </div>
                 <div class="yuedu-left clearfix">
                     <ul>
+                        @foreach($articles1 as $k => $article)
                         <li class="item clear active">
                         <span class="li_dot lefzz">
                             <i></i>
                         </span>
-                            <a class="no_line lefzz" href="/zzrq/qt/1243.html" >叠螺机在节能减排方面的优势</a>
+                            <a class="no_line lefzz" href="/thread-{{$article->id}}.html" >{{$article->title}}</a>
                         </li>
-                        <li class="item clear active">
-                        <span class="li_dot lefzz">
-                            <i></i>
-                        </span>
-                            <a class="no_line lefzz" href="/zzrq/qt/1243.html" >叠螺机在节能减排方面的优势</a>
-                        </li>
-                        <li class="item clear active">
-                        <span class="li_dot lefzz">
-                            <i></i>
-                        </span>
-                            <a class="no_line lefzz" href="/zzrq/qt/1243.html" >叠螺机在节能减排方面的优势</a>
-                        </li>
-                        <li class="item clear active">
-                        <span class="li_dot lefzz">
-                            <i></i>
-                        </span>
-                            <a class="no_line lefzz" href="/zzrq/qt/1243.html" >叠螺机在节能减排方面的优势</a>
-                        </li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="yuedu-right clearfix">
                     <ul>
+                        @foreach($articles2 as $article)
                         <li class="item clear active">
                         <span class="li_dot lefzz">
                             <i></i>
                         </span>
-                            <a class="no_line lefzz" href="/zzrq/qt/1243.html" >虫草，不是所有体质都适合</a>
+                            <a class="no_line lefzz" href="/thread-{{$article->id}}.html">{{$article->title}}</a>
                         </li>
-                        <li class="item clear active">
-                        <span class="li_dot lefzz">
-                            <i></i>
-                        </span>
-                            <a class="no_line lefzz" href="/zzrq/qt/1243.html" >虫草，不是所有体质都适合</a>
-                        </li>
-                        <li class="item clear active">
-                        <span class="li_dot lefzz">
-                            <i></i>
-                        </span>
-                            <a class="no_line lefzz" href="/zzrq/qt/1243.html" >虫草，不是所有体质都适合</a>
-                        </li>
-                        <li class="item clear active">
-                        <span class="li_dot lefzz">
-                            <i></i>
-                        </span>
-                            <a class="no_line lefzz" href="/zzrq/qt/1243.html" >虫草，不是所有体质都适合</a>
-                        </li>
-
-
+                        @endforeach
                     </ul>
                 </div>
                 <div style="clear: both;"></div>
@@ -133,7 +99,4 @@
 </div>
 <div style="clear:both"></div>
     @include('layouts.footer')
-</div>
-
-</div>
 @endsection

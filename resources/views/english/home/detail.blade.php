@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('english.layouts.main')
 
 @section('title')
     <title>江苏思科尼恩环保科技有限公司</title>

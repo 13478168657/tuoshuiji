@@ -327,7 +327,7 @@ class Uploader
     {
         $fullname = $this->fullName;
 //        $rootPath = $_SERVER['DOCUMENT_ROOT'];
-        $rootPath = '/Users/yangzhengxing/htdocs/hongcha/public/';
+        $rootPath = '/Users/yangzhengxing/htdocs/tuoshuiji/public/';
 
         if (substr($fullname, 0, 1) != '/') {
             $fullname = '/' . $fullname;

@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('english.layouts.main')
 @section('title')
     <title>{{$goods->title}}-祁门红茶</title>
     <meta name="keywords" content="{{$goods->meta_key_word}}" />

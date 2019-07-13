@@ -50,7 +50,7 @@
                                         <div class="image_upload"></div>
                                         @if($article->thumbPic)
                                         <div class="img_span">
-                                            <img class="img" src="{{env('IMG_URL').'/'.$article->thumbPic}}" style="width:80px;height:80px;margin-left:8px;"><span onclick="delImgUrl(this);" class="image_icon"></span>
+                                            <img class="img" src="/uploads/thumb/{{$article->thumbPic}}" style="width:80px;height:80px;margin-left:8px;"><span onclick="delImgUrl(this);" class="image_icon"></span>
                                         </div>
                                         @endif
                                         <input type="hidden" name="image" value=""/>

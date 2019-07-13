@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('english.layouts.main')
 @section('title')
     @if($page>=2)
         <title>祁门红茶-第{{$page}}页</title>
