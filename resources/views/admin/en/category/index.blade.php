@@ -27,6 +27,7 @@
                             <tr>
                                 <th>序号</th>
                                 <th>分类名称</th>
+                                <th>英文分类</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
@@ -34,6 +35,7 @@
                                 <tr>
                                     <td>{{$category->number}}</td>
                                     <td>{{$category->name}}</td>
+                                    <td>{{$category->english_name}}</td>
                                     <td><a onclick="del(this);" href="javascript:void(0);" data-id="{{$category->id}}">删除</a>/<a href="/category/edit?id={{$category->id}}">修改</a></td>
                                 </tr>
                             @endforeach

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Payment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
+use App\Models\ProjectModel;
 class PaymentController extends Controller
 {
     /**
@@ -13,7 +14,7 @@ class PaymentController extends Controller
      */
     public function __construct()
     {
-
+        $this->protectFlag = ProjectModel::first()->type;
     }
 
     /**
@@ -24,8 +25,13 @@ class PaymentController extends Controller
     public function index(Request $request)
     {
         $payment = new Payment();
-        $payments = $payment->paginate(15);
-        return view('admin.payment.index',['payments'=>$payments,'request'=>$request]);
+        if($this->protectFlag) {
+            $payments = $payment->where('type',1)->paginate(15);
+            return view('admin.en.payment.index', ['payments' => $payments, 'request' => $request]);
+        }else{
+            $payments = $payment->where('type',0)->paginate(15);
+            return view('admin.payment.index', ['payments' => $payments, 'request' => $request]);
+        }
     }
 
     public function create(Request $request){

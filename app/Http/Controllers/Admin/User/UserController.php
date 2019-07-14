@@ -2,29 +2,36 @@
 
 namespace App\Http\Controllers\Admin\User;
 
-use App\Models\Group;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
-use App\Models\UserGroup;
+use App\Models\ProjectModel;
 class UserController extends Controller
 {
     public function __construct(){
-
+        $this->protectFlag = ProjectModel::first()->type;
     }
     /*
      * 列表
      */
     public function index(Request $request){
         $users = User::paginate(10);
-        return view('admin.user.list',['users'=>$users]);
+        if($this->protectFlag == 0){
+            return view('admin.user.list',['users'=>$users]);
+        }else{
+            return view('admin.en.user.list',['users'=>$users]);
+        }
     }
     /*
      * 添加
      */
     public function add(Request $request){
         // $groups = Group::get();
-        return view('admin.user.add');
+        if($this->protectFlag == 0) {
+            return view('admin.user.add');
+        }else{
+            return view('admin.en.user.add');
+        }
     }
     /*
      * 处理数据
@@ -41,27 +48,17 @@ class UserController extends Controller
         $user->email = $email;
         $user->status = $status;
         if($user->save()){
-            // $user_id = $user->id;
-            // foreach($groups as $g){
-            //     $userGroup = new UserGroup();
-            //     $userGroup->user_id = $user_id;
-            //     $userGroup->group_id = $g;
-            //     $userGroup->save();
-            // }
             return redirect('/user/list');
         }
     }
     public function edit(Request $request){
         $id = $request->input('id');
         $user = User::where('id',$id)->first();
-        // $userGroup = $user->group;
-        // $groupsArr = [];
-        // foreach($userGroup as $group){
-        //     $groupsArr[] = $group->id;
-        // }
-        // $groups = Group::get();
-//        dd($groups);
-        return view('admin.user.edit',['user'=>$user]);
+        if($this->protectFlag == 0) {
+            return view('admin.user.edit',['user'=>$user]);
+        }else{
+            return view('admin.en.user.edit',['user'=>$user]);
+        }
     }
     public function postEdit(Request $request){
         $id = $request->input('id');
@@ -93,7 +90,7 @@ class UserController extends Controller
     public function del(Request $request){
         $result = User::where('id',$request->input('id'))->delete();
         if($result){
-            return json_eecode(['code'=>0,'msg'=>'删除成功']);
+            return json_encode(['code'=>0,'msg'=>'删除成功']);
         }else{
             return json_encode(['code'=>1,'msg'=>'删除失败']);
         }

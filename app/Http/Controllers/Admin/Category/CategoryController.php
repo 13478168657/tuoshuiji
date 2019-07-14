@@ -5,13 +5,22 @@ namespace App\Http\Controllers\Admin\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\ProjectModel;
 class CategoryController extends Controller
 {
+
+    public function __construct(){
+        $this->protectFlag = ProjectModel::first()->type;
+    }
 
     public function index(Request $request){
         $base_id = $request->input('base_id');
         $categories = Category::where('base_id',$base_id)->get();
-        return view('admin.category.index',['categories'=>$categories,'base_id'=>$base_id]);
+        if($this->protectFlag == 0){
+            return view('admin.category.index',['categories'=>$categories,'base_id'=>$base_id]);
+        }else{
+            return view('admin.en.category.index',['categories'=>$categories,'base_id'=>$base_id]);
+        }
     }
 
     /*
@@ -20,7 +29,11 @@ class CategoryController extends Controller
      */
     public function create(Request $request){
         $base_id = $request->input('base_id');
-        return view('admin.category.create',['base_id'=>$base_id]);
+        if($this->protectFlag == 0) {
+            return view('admin.category.create', ['base_id' => $base_id]);
+        }else{
+            return view('admin.en.category.create', ['base_id' => $base_id]);
+        }
     }
     /*
      * 生成分类
@@ -47,7 +60,11 @@ class CategoryController extends Controller
     public function edit(Request $request){
         $id = $request->input('id');
         $category = Category::where('id',$id)->first();
-        return view('admin.category.edit',['category'=>$category]);
+        if($this->protectFlag == 0) {
+            return view('admin.category.edit', ['category' => $category]);
+        }else{
+            return view('admin.en.category.edit', ['category' => $category]);
+        }
     }
 
     /*

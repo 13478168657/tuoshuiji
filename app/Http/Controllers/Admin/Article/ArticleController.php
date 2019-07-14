@@ -66,7 +66,7 @@ class ArticleController extends Controller
         if($this->protectFlag == 0){
             return view('admin.articles.add',['classifies'=>$classifyList,'category_id'=>$request->input('pid'),'key'=>$key]);
         }else{
-            return view('admin.articles.englishAdd',['classifies'=>$classifyList,'category_id'=>$request->input('pid'),'key'=>$key]);
+            return view('admin.en.articles.englishAdd',['classifies'=>$classifyList,'category_id'=>$request->input('pid'),'key'=>$key]);
         }
     }
     /*
@@ -116,7 +116,7 @@ class ArticleController extends Controller
         if($this->protectFlag == 0){
             return view('admin.articles.edit',['article'=>$article,'classifies'=>$classifyList,'category_id'=>$category_id,'key'=>$key]);
         }else{
-            return view('admin.articles.englishEdit',['article'=>$article,'classifies'=>$classifyList,'category_id'=>$category_id,'key'=>$key]);
+            return view('admin.en.articles.englishEdit',['article'=>$article,'classifies'=>$classifyList,'category_id'=>$category_id,'key'=>$key]);
         }
     }
     /*

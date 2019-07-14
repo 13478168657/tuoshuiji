@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Consult;
 use App\Utils\ClassifyUtil;
 use App\Utils\ImageUpload;
+use App\Models\ProjectModel;
 use Validation;
 class ConsultController extends Controller
 {
@@ -16,7 +17,7 @@ class ConsultController extends Controller
      */
     public function __construct()
     {
-
+        $this->protectFlag = ProjectModel::first()->type;
     }
 
     /**
@@ -27,13 +28,22 @@ class ConsultController extends Controller
     public function index(Request $request)
     {
         $consult = new Consult();
-        $consults = $consult->paginate(15);
-        return view('admin.consult.index',['consults'=>$consults,'request'=>$request]);
+        if($this->protectFlag){
+            $consults = $consult->where('type',1)->paginate(15);
+            return view('admin.en.consult.index',['consults'=>$consults,'request'=>$request]);
+        }else{
+            $consults = $consult->where('type',0)->paginate(15);
+            return view('admin.consult.index',['consults'=>$consults,'request'=>$request]);
+        }
+
     }
 
     public function create(Request $request){
-
-        return view('admin.consult.create');
+        if($this->protectFlag) {
+            return view('admin.en.consult.create');
+        }else{
+            return view('admin.consult.create');
+        }
     }
     /*
      * 添加文章
@@ -43,6 +53,9 @@ class ConsultController extends Controller
         $consult->name = $request->input('name');
         $consult->content = $request->input('content');
         $consult->meta_keyword = $request->input('meta_keyword');
+        if($this->protectFlag) {
+            $consult->type = 1;
+        }
         $consult->meta_description = $request->input('meta_description');
         $consult->status = intval($request->input('status'));
         if($consult->save()){
@@ -55,7 +68,11 @@ class ConsultController extends Controller
     public function edit(Request $request){
         $id = $request->input('id');
         $consult = Consult::where('id',$id)->first();
-        return view('admin.consult.edit',['consult'=>$consult]);
+        if($this->protectFlag) {
+            return view('admin.en.consult.edit', ['consult' => $consult]);
+        }else{
+            return view('admin.consult.edit', ['consult' => $consult]);
+        }
     }
     /*
      * 编辑处理
