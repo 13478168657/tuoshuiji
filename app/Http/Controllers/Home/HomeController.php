@@ -9,6 +9,7 @@ use App\Models\Article;
 use App\Models\Category;
 use App\Models\Advertisement;
 use App\Models\AdSpace;
+use App\Models\SingleArticle;
 use App\Models\BaseConfig;
 use App\Models\Goods;
 use App\Utils\PageUtil;
@@ -50,7 +51,7 @@ class HomeController extends Controller
 //                return redirect('/h/index'.$id.'s'.$page.'.html');
 //            }
         }
-
+        $singleArticles = SingleArticle::where('type',0)->get();
 //        $request->page = $page;
         if($id == 11){
             $pageSize = 12;
@@ -70,7 +71,7 @@ class HomeController extends Controller
 //        if($id == 11){
 //            return view('home.imgList',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize,'page'=>$page]);
 //        }
-        return view('home.list',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize,'page'=>$page,'navCates'=>$navCates]);
+        return view('home.list',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize,'page'=>$page,'navCates'=>$navCates,'singleArticles'=>$singleArticles]);
         return view('home.list');
     }
 
@@ -95,12 +96,13 @@ class HomeController extends Controller
 
         $article->save();
         $category =  Category::where('id',$article->category_id)->first();
+        $singleArticles = SingleArticle::where('type',0)->get();
         $nextArticle = Article::where('id',$id+1)->first();
         $prevArticle = Article::where('id',$id-1)->first();
         $articles1 = Article::where('category_id',$article->category_id)->take(4)->where('id','!=',$article->id)->orderBy('id','desc')->get();
         $articles2 = Article::where('category_id',$article->category_id)->take(4)->where('id','!=',$article->id)->orderBy('id','desc')->get();
         $categories = Category::where('base_id',1)->where('id','!=',$article->category_id)->orderBy('number','desc')->take(3)->get();
-        return view('home.detail',['article'=>$article,'categories'=>$categories,'category'=>$category,'nextArticle'=>$nextArticle,'prevArticle'=>$prevArticle,'articles1'=>$articles1,'articles2'=>$articles2]);
+        return view('home.detail',['article'=>$article,'categories'=>$categories,'category'=>$category,'nextArticle'=>$nextArticle,'prevArticle'=>$prevArticle,'articles1'=>$articles1,'articles2'=>$articles2,'singleArticles'=>$singleArticles]);
         return view('home.detail');
     }
 

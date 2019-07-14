@@ -57,7 +57,7 @@ Route::group(['domain' => '{account}.scleanchina.com'], function () {
         }
     });
 
-    Route::get('consult','Consult\ConsultController@index');
+    Route::get('single/{id}.html','Consult\ConsultController@index');
     Route::get('instruction','Instruction\InstructionController@index');
     Route::get('notice','Notice\NoticeController@index');
     Route::get('payment','Payment\PaymentController@index');

@@ -7,10 +7,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Consult;
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\SingleArticle;
 class ConsultController extends Controller
 {
-    public function index(){
-        $consult = Consult::first();
+    public function index(Request $request,$id){
+        $consult = SingleArticle::where('id',$id)->first();
         $categories = Category::where('base_id',1)->orderBy('number','desc')->limit(3)->get();
         $category =  Category::first();
         $articles1 = Article::take(4)->orderBy('id','desc')->get();
