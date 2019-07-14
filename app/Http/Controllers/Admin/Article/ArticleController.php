@@ -52,7 +52,11 @@ class ArticleController extends Controller
         }
         $article = $article->where('category_number',$category_number);
         $articles = $article->orderBy('created_at','desc')->paginate(10);
-        return view('admin.articles.list',['articles'=>$articles,'request'=>$request,'category'=>$category,'key'=>$key]);
+        if($this->protectFlag == 0) {
+            return view('admin.articles.list', ['articles' => $articles, 'request' => $request, 'category' => $category, 'key' => $key]);
+        }else{
+            return view('admin.en.articles.list', ['articles' => $articles, 'request' => $request, 'category' => $category, 'key' => $key]);
+        }
     }
 
     public function add(Request $request){

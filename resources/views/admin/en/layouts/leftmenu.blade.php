@@ -7,20 +7,20 @@ $projectType = ProjectModel::first();
 ?>
 <div id="sidebar">
     <nav class="sidebar">
-        <div class="sidebar-header"><span class="sidebar-headering">主菜单</span></div>
+        <div class="sidebar-header"><span class="sidebar-headering">Main menu</span></div>
         <ul class="menuItems">
             <li>
                 <a href="javascript:void(0);">
-                    <i class="glyphicon glyphicon-user"></i>用户管理
+                    <i class="glyphicon glyphicon-user"></i>UserManagerment
                     <i class="glyphicon toggle-icon glyphicon-menu-down"></i>
                 </a>
                 <ul class="side-ul-menu user-manage">
-                    <li class="user-list"><a href="/user/list">用户列表</a></li>
+                    <li class="user-list"><a href="/user/list">UserList</a></li>
                 </ul>
             </li>
             <li>
                 <a href="javascript:void(0);">
-                    <i class="glyphicon glyphicon-briefcase"></i>类别管理
+                    <i class="glyphicon glyphicon-briefcase"></i>CategoryManager
                     <i class="glyphicon toggle-icon glyphicon-menu-down"></i>
                 </a>
                 <ul class="side-ul-menu">
@@ -37,49 +37,49 @@ $projectType = ProjectModel::first();
                             </li>
                         @endforeach
                     @endif
-                    <li class="manage_base1"><a href="/category/list?base_id=1">分类管理</a></li>
+                    <li class="manage_base1"><a href="/category/list?base_id=1">ClassifyManager</a></li>
                 </ul>
             </li>
             <li>
                 <a href="javascript:void(0);">
-                    <i class="glyphicon glyphicon-wrench"></i>单页管理
+                    <i class="glyphicon glyphicon-wrench"></i>SinglePageTemplate
                     <i class="glyphicon toggle-icon glyphicon-menu-down"></i>
                 </a>
                 <ul class="side-ul-menu">
-                    <li class="ad_position consult-us"><a href="/consult/list">联系方式</a></li>
-                    <li class="ad_position payment-style"><a href="/payment/list">本站购物</a></li>
-                    <li class="ad_position delivery-instruction"><a href="/instruction/list">版权声明</a></li>
-                     <li class="ad_position delivery-notice"><a href="/notice/list">免责声明</a></li>
-                     <li class="ad_position delivery-about"><a href="/about/list">关于本站</a></li>
+                    <li class="ad_position consult-us"><a href="/consult/list">connection style</a></li>
+                    <li class="ad_position payment-style"><a href="/payment/list">network buy</a></li>
+                    <li class="ad_position delivery-instruction"><a href="/instruction/list">banquanshengming</a></li>
+                     <li class="ad_position delivery-notice"><a href="/notice/list">declare</a></li>
+                     <li class="ad_position delivery-about"><a href="/about/list">about network</a></li>
                 </ul>
             </li>
             <li>
                 <a href="javascript:void(0);">
-                    <i class="glyphicon glyphicon-link"></i>友情链接
+                    <i class="glyphicon glyphicon-link"></i>link
                     <i class="glyphicon toggle-icon glyphicon-menu-down"></i>
                 </a>
                 <ul class="side-ul-menu">
-                    <li class="link-list"><a href="/link/list">链接列表</a></li>
+                    <li class="link-list"><a href="/link/list">link list</a></li>
                 </ul>
             </li>
             <li>
                 <a href="javascript:void(0);">
-                    <i class="glyphicon glyphicon-fire"></i>广告管理
+                    <i class="glyphicon glyphicon-fire"></i>advertisements
                     <i class="glyphicon toggle-icon glyphicon-menu-down"></i>
                 </a>
                 <ul class="side-ul-menu">
-                    <li class="ad_position ad-list"><a href="/ad/list">广告列表</a></li>
-                    <li class="adSpace-list"><a href="/adSpace/list">广告位列表</a></li>
+                    <li class="ad_position ad-list"><a href="/ad/list">ad list</a></li>
+                    <li class="adSpace-list"><a href="/adSpace/list">ad position</a></li>
                 </ul>
             </li>
             <li>
                 <a href="javascript:void(0);">
-                    <i class="glyphicon glyphicon-fire"></i>系统管理
+                    <i class="glyphicon glyphicon-fire"></i>system
                     <i class="glyphicon toggle-icon glyphicon-menu-down"></i>
                 </a>
                 <ul class="side-ul-menu">
-                    <li class="ad_position base-list"><a href="/base/config">网站基本设置</a></li>
-                    <li class="ad_position base-change"><a href="/base/change">网站模版切换</a></li>
+                    <li class="ad_position base-list"><a href="/base/config">network base manage</a></li>
+                    <li class="ad_position base-change"><a href="/base/change">model change</a></li>
                 </ul>
             </li>
         </ul>
