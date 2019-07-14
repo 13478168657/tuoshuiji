@@ -14,6 +14,7 @@
 
 <!--导航开始 strat-->
 @include('layouts.header')
+
 <div class="list w">
     <div class="left-l">
         <div class="left-r">
@@ -79,13 +80,9 @@
 <div class="nav">
     <ul class="nav-banner w">
         <li><a href="/" class="munber">网站首页</a></li>
-        <li><a href="/index1.html">产品展示</a></li>
-        <li><a href="/index2.html">视频中心</a></li>
-        <li><a href="/index3.html">成功案例</a></li>
-        <li><a href="/index4.html">服务支持</a></li>
-        <li><a href="/index5.html">污泥脱水机</a></li>
-        <li><a href="/index6.html">企业新闻</a></li>
-        <li><a href="/index7.html">行业资讯</a></li>
+        @foreach($navCates as $navCate)
+        <li><a href="/index{{$navCate->id}}.html">{{$navCate->name}}</a></li>
+        @endforeach
         <li><a href="/about">公司简介</a></li>
     </ul>
 </div>

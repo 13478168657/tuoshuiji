@@ -59,6 +59,7 @@ class HomeController extends Controller
             $pageSize = 10;
             $skip = ($page-1)*$pageSize;
         }
+        $navCates = Category::take(7)->orderBy('number','asc')->get();
         $category =  Category::where('id',$id)->first();
 //        dd($category);
         $categories = Category::where('base_id',1)->where('id','!=',$category->id)->orderBy('number','desc')->limit(3)->get();
@@ -69,7 +70,7 @@ class HomeController extends Controller
 //        if($id == 11){
 //            return view('home.imgList',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize,'page'=>$page]);
 //        }
-        return view('home.list',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize,'page'=>$page]);
+        return view('home.list',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize,'page'=>$page,'navCates'=>$navCates]);
         return view('home.list');
     }
 
