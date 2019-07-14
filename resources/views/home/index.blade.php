@@ -10,9 +10,7 @@
     <link rel="stylesheet" href="/css/index-15.css">
 @endsection
 @section('content')
-<?php
-        dd(3);
-        ?>
+
 <!--产品展示start-->
 
 <div id="fh5co-product-list" class="layout">
