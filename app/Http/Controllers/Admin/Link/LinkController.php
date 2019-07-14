@@ -5,29 +5,44 @@ namespace App\Http\Controllers\Admin\Link;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Link;
+use App\Models\ProjectModel;
 class LinkController extends Controller
 {
     public function __construct()
     {
-        
+        $this->protectFlag = ProjectModel::first()->type;
     }
     public function index(Request $request){
         $link = new Link();
         if($request->input('name')){
             $link = $link->where('name','like','%'.$request->input('name').'%');
         }
-        $links = $link->paginate(30);
-        return view('admin.links.index',['links'=>$links,'request'=>$request]);
+        if($this->protectFlag) {
+            $links = $link->where('type',1);
+            $links = $link->paginate(30);
+            return view('admin.en.links.index',['links'=>$links,'request'=>$request]);
+        }else{
+            $links = $link->where('type',0);
+            $links = $link->paginate(30);
+            return view('admin.links.index',['links'=>$links,'request'=>$request]);
+        }
     }
 
     public function create(Request $request){
-        return view('admin.links.create');
+        if($this->protectFlag) {
+            return view('admin.en.links.create');
+        }else{
+            return view('admin.links.create');
+        }
     }
 
     public function postCreate(Request $request){
         $link  = new Link();
         $link->name = $request->input('name');
         $link->url = $request->input('url');
+        if($this->protectFlag) {
+            $link->type = 1;
+        }
         if($link->save()){
             return redirect('/link/list');
         }
@@ -35,7 +50,11 @@ class LinkController extends Controller
 
     public function edit(Request $request){
         $link = Link::where('id',$request->input('id'))->first();
-        return view('admin.links.edit',['link'=>$link]);
+        if($this->protectFlag) {
+            return view('admin.en.links.edit', ['link' => $link]);
+        }else{
+            return view('admin.links.edit', ['link' => $link]);
+        }
     }
 
     public function postEdit(Request $request){

@@ -11,21 +11,30 @@ class BaseConfigController extends Controller
 {
     public function __construct()
     {
-
+        $this->protectFlag = ProjectModel::first()->type;
     }
+
     public function index(Request $request){
-        $config = BaseConfig::first();
+        if($this->protectFlag) {
+            $config = BaseConfig::where('type',1)->first();
+        }else{
+            $config = BaseConfig::where('type',0)->first();
+        }
         if($config){
             $flag = 1;
         }else{
             $flag = 0;
         }
-        return view('admin.base.index',['config'=>$config,'flag'=>$flag]);
+        if($this->protectFlag) {
+            return view('admin.en.base.index', ['config' => $config, 'flag' => $flag]);
+        }else{
+            return view('admin.base.index', ['config' => $config, 'flag' => $flag]);
+        }
+
     }
 
     public function create(Request $request){
 
-        return view('base.create');
     }
     public function postCreate(Request $request){
         if($request->input('id')){
@@ -35,6 +44,9 @@ class BaseConfigController extends Controller
         }
         $config->title = $request->input('title');
         $config->name = $request->input('name');
+        if($this->protectFlag) {
+            $config->type = 1;
+        }
         $config->home_key_word = $request->input('home_key_word');
         $config->home_meta_description = $request->input('home_meta_description');
         $config->link_style = $request->input('link_style');
@@ -47,6 +59,9 @@ class BaseConfigController extends Controller
     }
     public function edit(Request $request){
         $config = BaseConfig::where('id',$request->input('id'))->first();
+        if($this->protectFlag) {
+            return view('admin.en.base.edit',['config'=>$config]);
+        }
         return view('admin.base.edit',['config'=>$config]);
     }
 
@@ -76,8 +91,11 @@ class BaseConfigController extends Controller
 
     public function change(Request $request){
         $projectModel = ProjectModel::first();
-
-        return view('admin.project.index',['projectModel'=>$projectModel]);
+        if($this->protectFlag) {
+            return view('admin.en.project.index', ['projectModel' => $projectModel]);
+        }else{
+            return view('admin.project.index', ['projectModel' => $projectModel]);
+        }
     }
 
     public function modelChange(Request $request){

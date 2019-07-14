@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Notice;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Notice;
+use App\Models\ProjectModel;
 class NoticeController extends Controller
 {
     /**
@@ -13,7 +14,7 @@ class NoticeController extends Controller
      */
     public function __construct()
     {
-
+        $this->protectFlag = ProjectModel::first()->type;
     }
 
     /**
@@ -24,13 +25,21 @@ class NoticeController extends Controller
     public function index(Request $request)
     {
         $notice = new Notice();
-        $notices = $notice->paginate(15);
-        return view('admin.notice.index',['notices'=>$notices,'request'=>$request]);
+        if($this->protectFlag) {
+            $notices = $notice->where('type',1)->paginate(15);
+            return view('admin.en.notice.index', ['notices' => $notices, 'request' => $request]);
+        }else{
+            $notices = $notice->where('type',0)->paginate(15);
+            return view('admin.notice.index', ['notices' => $notices, 'request' => $request]);
+        }
     }
 
     public function create(Request $request){
-
-        return view('admin.notice.create');
+        if($this->protectFlag) {
+            return view('admin.en.notice.create');
+        }else{
+            return view('admin.notice.create');
+        }
     }
     /*
      * 添加文章
@@ -38,6 +47,9 @@ class NoticeController extends Controller
     public function postCreate(Request $request){
         $notice = new Notice();
         $notice->name = $request->input('name');
+        if($this->protectFlag) {
+            $notice->type = 1;
+        }
         $notice->content = $request->input('content');
         $notice->meta_keyword = $request->input('meta_keyword');
         $notice->meta_description = $request->input('meta_description');
@@ -52,7 +64,11 @@ class NoticeController extends Controller
     public function edit(Request $request){
         $id = $request->input('id');
         $notice = Notice::where('id',$id)->first();
-        return view('admin.notice.edit',['notice'=>$notice]);
+        if($this->protectFlag) {
+            return view('admin.en.notice.edit',['notice'=>$notice]);
+        }else{
+            return view('admin.notice.edit',['notice'=>$notice]);
+        }
     }
     /*
      * 编辑处理

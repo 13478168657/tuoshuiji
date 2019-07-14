@@ -35,8 +35,11 @@ class PaymentController extends Controller
     }
 
     public function create(Request $request){
-
-        return view('admin.payment.create');
+        if($this->protectFlag) {
+            return view('admin.en.payment.create');
+        }else{
+            return view('admin.payment.create');
+        }
     }
     /*
      * 添加文章
@@ -44,6 +47,11 @@ class PaymentController extends Controller
     public function postCreate(Request $request){
         $payment = new Payment();
         $payment->name = $request->input('name');
+        if($this->protectFlag) {
+            $payment->type = 1;
+        }else{
+            $payment->type = 0;
+        }
         $payment->content = $request->input('content');
         $payment->meta_keyword = $request->input('meta_keyword');
         $payment->meta_description = $request->input('meta_description');
@@ -58,7 +66,11 @@ class PaymentController extends Controller
     public function edit(Request $request){
         $id = $request->input('id');
         $payment = Payment::where('id',$id)->first();
-        return view('admin.payment.edit',['payment'=>$payment]);
+        if($this->protectFlag) {
+            return view('admin.en.payment.edit', ['payment' => $payment]);
+        }else{
+            return view('admin.payment.edit', ['payment' => $payment]);
+        }
     }
     /*
      * 编辑处理
