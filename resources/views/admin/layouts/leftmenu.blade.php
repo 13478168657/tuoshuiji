@@ -46,11 +46,7 @@ $projectType = ProjectModel::first();
                     <i class="glyphicon toggle-icon glyphicon-menu-down"></i>
                 </a>
                 <ul class="side-ul-menu">
-                    <li class="ad_position consult-us"><a href="/consult/list">联系方式</a></li>
-                    <li class="ad_position payment-style"><a href="/payment/list">本站购物</a></li>
-                    <li class="ad_position delivery-instruction"><a href="/instruction/list">版权声明</a></li>
-                     <li class="ad_position delivery-notice"><a href="/notice/list">免责声明</a></li>
-                     <li class="ad_position delivery-about"><a href="/about/list">关于本站</a></li>
+                    <li class="ad_position consult-us"><a href="/consult/list">单页列表</a></li>
                 </ul>
             </li>
             <li>
