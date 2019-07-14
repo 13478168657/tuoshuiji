@@ -3,6 +3,7 @@ use App\Models\Link;
 use App\Models\Category;
 $links = Link::orderBy('id','desc')->get();
 $categories = Category::take(7)->orderBy('number','asc')->get();
+dd($categories);
 ?>
 
 <div class="index-15 gray">
