@@ -117,7 +117,7 @@
     </div>
 </div>
 <br>
-@include('layouts.footer')
+@include('english.layouts.footer')
 
 </div>
 

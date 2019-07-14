@@ -31,6 +31,7 @@ class EnHomeController extends Controller
         $data['publicNews'] = Article::where('category_id',14)->where('is_english',1)->where('status',3)->orderBy('id','desc')->take(3)->get();
         $baseConfig = BaseConfig::first();
         $data['baseConfig'] = $baseConfig;
+//        dd(3);
         return view('english.home.index',$data);
     }
 

@@ -1,70 +1,92 @@
 @extends('layouts.main')
-<title>{{$about->name}}-祁门红茶网</title>
-<meta name="keywords" content="{{$about->meta_keyword}}" />
-<meta name="description" content="{{$about->meta_description}}" />
-@section('content')
+
+@section('title')
+    <title>江苏思科尼恩环保科技有限公司</title>
+@endsection
+
+@section('css')
+    <link rel="stylesheet" href="/css/index-14.css">
+    <link rel="stylesheet" href="/css/index-15.css">
+    <link rel="stylesheet" href="/css/list.css">
     <link rel="stylesheet" href="/css/details.css">
-    <div class="news w clearfix">
-        <div class="news-l">
-            <div class="mainLeft">
-                <div class="BreadNav">
-                    <a href="/">首页</a>&nbsp;/&nbsp;
-                    <a class="hover" href="/about">{{$about->name}}</a>
-                </div>
-                <div class="content">
-                    <?php
-                    echo htmlspecialchars_decode($about->content);
-                    ?>
-                </div>
+@endsection
+
+@section('content')
+    <div class="list w">
+        <div class="left-l">
+            <div class="left-r">
+                <div class="dianhua">联系我们</div>
+                <ul>
+                    <li><a href="/about">公司介绍</a></li>
+                    <li><a href="/consult">联系方式</a></li>
+                    <li><a href="/notice">免责声明</a></li>
+                    <li><a href="/payment">本站购物</a></li>
+                    <li><a href="/instruction">版权声明</a></li>
+                </ul>
+            </div>
+
+            <div class="left">
+                <div class="dianhua">联系我们</div>
+                <p>电话：13865929250</p>
+                <p>传真：13865929250</p>
+                <p>电子邮件：643717450@qq.com</p>
+                <p>网址：www.saipujianshen.com</p>
+                <p>地址：北京大兴区金源路26号</p>
+                <p class="yanse">【综合服务部】</p>
+                <p>李先生：电话：13865929250</p>
+                <p>李先生：电话：13865929250</p>
+                <p>李先生：电话：13865929250</p>
+                <p>李先生：电话：13865929250</p>
             </div>
         </div>
-        <div class="news-r">
-            <div class="news-r-n">
-                @foreach($categories as $k=>$cat)
-
-                    @if($k == 9)
-                        <?php
-                        $articles = \App\Models\Article::where('category_id',$cat->id)->where('status',3)->select('id','title','thumbPic')->limit(9)->get();
-                        ?>
-                        <div class="news-r-t">
-                            <h2>{{$cat->name}}</h2>
+        <div class="right">
+            <div class="news w clearfix">
+                <div class="news-l">
+                    <div class="mainLeft">
+                        <div class="BreadNav">
+                            <a href="/">您当前位置：</a><a href="/index2.html">首页</a>	>	<a href="/index2.html">联系我们</a>	>	<a href="/index2.html">叠螺机在节能减排方面的优势</a>
                         </div>
-                        <div class="tag">
-                            @foreach($articles as $article)
-                                <a href="/thread-{{$article->id}}.html">{{$article->title}}</a>
-                            @endforeach
+                        <h1>{{$about->title}}</h1>
+                        <div class="content clearfix">
+                            <?php
+                            echo htmlspecialchars_decode($about->content);
+                            ?>
                         </div>
-                    @else
-                        <?php
-                        $articles = \App\Models\Article::where('category_id',$cat->id)->where('status',3)->select('id','title','thumbPic')->limit(3)->get();
-                        ?>
-                        <div class="news-r-t">
-                            <h2>{{$cat->name}}</h2>
-                        </div>
-                        <ul class="side_class3">
-                            @foreach($articles as $article)
-                                <li>
-                                    <div class="limg">
-                                        <a href="/thread-{{$article->id}}.html" target="_blank" >
-                                            <img src="/uploads/thumb/{{$article->thumbPic}}" alt="{{$article->meta_description}}" >
-                                        </a>
-                                    </div>
-                                    <div class="rtext">
-                                        <div class="side3_title"><a href="/thread-{{$article->id}}.html" target="_blank" >{{$article->title}}
-                                            </a></div>
-                                        <div class="side3_redu">{{$article->visit_num}}</div>
-                                    </div>
-                                    <div style="clear:both"></div>
+                    </div>
+                    <div class="yuedu">
+                        <div class="xiangguan"><span>相关阅读</span></div>
+                    </div>
+                    <div class="yuedu-left clearfix">
+                        <ul>
+                            @foreach($articles1 as $k => $article)
+                                <li class="item clear active">
+                        <span class="li_dot lefzz">
+                            <i></i>
+                        </span>
+                                    <a class="no_line lefzz" href="/thread-{{$article->id}}.html" >{{$article->title}}</a>
                                 </li>
-                                <div style=" clear:both"></div>
                             @endforeach
                         </ul>
-                    @endif
-                @endforeach
+                    </div>
+                    <div class="yuedu-right clearfix">
+                        <ul>
+                            @foreach($articles2 as $article)
+                                <li class="item clear active">
+                        <span class="li_dot lefzz">
+                            <i></i>
+                        </span>
+                                    <a class="no_line lefzz" href="/thread-{{$article->id}}.html">{{$article->title}}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    <div style="clear: both;"></div>
+
+                </div>
             </div>
+
         </div>
     </div>
-@endsection
-@section('footer')
-    @include('layouts.footerList')
+    <div style="clear:both"></div>
+    @include('layouts.footer')
 @endsection

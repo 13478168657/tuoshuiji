@@ -46,7 +46,7 @@
     s.parentNode.insertBefore(bp, s);
 })();
 </script>
-@include('layouts.header')
+@include('english.layouts.header')
 
 @yield('content')
 

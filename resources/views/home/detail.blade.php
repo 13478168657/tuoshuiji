@@ -17,11 +17,11 @@
         <div class="left-r">
             <div class="dianhua">联系我们</div>
             <ul>
-                <li><a href="">公司介绍</a></li>
-                <li><a href="">企业文化</a></li>
-                <li><a href="">服务流程</a></li>
-                <li><a href="">服务流程</a></li>
-                <li><a href="">服务流程</a></li>
+                <li><a href="/about">公司介绍</a></li>
+                <li><a href="/consult">联系方式</a></li>
+                <li><a href="/notice">免责声明</a></li>
+                <li><a href="/payment">本站购物</a></li>
+                <li><a href="/instruction">版权声明</a></li>
             </ul>
         </div>
 

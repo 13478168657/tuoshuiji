@@ -31,23 +31,23 @@ $categories = Category::take(9)->orderBy('number','desc')->get();
 <!--导航开始 strat-->
 <div class="nav">
     <ul class="nav-banner w">
-        <li><a href="/" class="munber">网站首页</a></li>
-        <li><a href="/index1.html">产品展示</a></li>
-        <li><a href="/index2.html">视频中心</a></li>
-        <li><a href="/index3.html">成功案例</a></li>
-        <li><a href="/index4.html">服务支持</a></li>
-        <li><a href="/index5.html">污泥脱水机</a></li>
-        <li><a href="/index6.html">企业新闻</a></li>
-        <li><a href="/index7.html">行业资讯</a></li>
-        <li><a href="/index8.html">公司简介</a></li>
+        <li><a href="/en.html" class="munber">home</a></li>
+        <li><a href="/en/index1.html">product show</a></li>
+        <li><a href="/en/index2.html">video center</a></li>
+        <li><a href="/en/index3.html">success Example</a></li>
+        <li><a href="/en/index4.html">service support</a></li>
+        <li><a href="/en/index5.html">dirty mach</a></li>
+        <li><a href="/en/index6.html">company news</a></li>
+        <li><a href="/en/index7.html">news</a></li>
+        <li><a href="/en/about">公司简介</a></li>
     </ul>
 </div>
 <div id="container">
     <div class="sections">
-        <div class="section" id="section0"></div>
-        <div class="section" id="section1"></div>
-        <div class="section" id="section2"></div>
-        <div class="section" id="section3"></div>
+        {{--<div class="section" id="section0"></div>--}}
+        {{--<div class="section" id="section1"></div>--}}
+        {{--<div class="section" id="section2"></div>--}}
+        {{--<div class="section" id="section3"></div>--}}
     </div>
 </div>
 <!--导航结束 end-->

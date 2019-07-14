@@ -48,7 +48,7 @@ $links = Link::orderBy('id','desc')->get();
         <li><a href="/index5.html">污泥脱水机</a></li>
         <li><a href="/index6.html">企业新闻</a></li>
         <li><a href="/index7.html">行业资讯</a></li>
-        <li><a href="/index8.html">公司简介</a></li>
+        <li><a href="/about">公司简介</a></li>
     </ul>
 </div>
 <!--footer end-->
