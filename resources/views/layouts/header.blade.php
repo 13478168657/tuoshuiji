@@ -1,9 +1,8 @@
 <?php
 use App\Models\Category;
 
-$categories = Category::take(9)->orderBy('number','desc')->get();
-
-
+$categories = Category::take(7)->orderBy('number','asc')->get();
+$keyCates = Category::where('number','>=',100)->get();
 ?>
 <div class="top">
     <div class="juzhong">
@@ -32,13 +31,9 @@ $categories = Category::take(9)->orderBy('number','desc')->get();
 <div class="nav">
     <ul class="nav-banner w">
         <li><a href="/" class="munber">网站首页</a></li>
-        <li><a href="/index1.html">产品展示</a></li>
-        <li><a href="/index2.html">视频中心</a></li>
-        <li><a href="/index3.html">成功案例</a></li>
-        <li><a href="/index4.html">服务支持</a></li>
-        <li><a href="/index5.html">污泥脱水机</a></li>
-        <li><a href="/index6.html">企业新闻</a></li>
-        <li><a href="/index7.html">行业资讯</a></li>
+        @foreach($categories as $category)
+        <li><a href="/index{{$category->id}}.html">{{$category->name}}</a></li>
+        @endforeach
         <li><a href="/about">公司简介</a></li>
     </ul>
 </div>
@@ -55,14 +50,9 @@ $categories = Category::take(9)->orderBy('number','desc')->get();
     <div class="sousou-center w">
         <ul>
             <li><strong>热门关键词：</strong></li>
-            <li><a href="">脱水机</a></li>
-            <li><a href="">脱水机</a></li>
-            <li><a href="">脱水机</a></li>
-            <li><a href="">脱水机</a></li>
-            <li><a href="">脱水机</a></li>
-            <li><a href="">脱水机</a></li>
-            <li><a href="">脱水机</a></li>
-            <li><a href="">脱水机</a></li>
+            @foreach($keyCates as $keyCate)
+            <li><a href="/index{{$category->id}}.html">{{$keyCate->name}}</a></li>
+            @endforeach
         </ul>
     </div>
 </div>
