@@ -156,12 +156,12 @@ Route::group(['domain' => '{account}.tsj.com'], function () {
             /*
              * 联系我们
              */
-            Route::get('consult/list', 'Consult\ConsultController@index');
-            Route::get('consult/create', 'Consult\ConsultController@create');
-            Route::post('consult/postCreate', 'Consult\ConsultController@postCreate');
-            Route::get('consult/edit', 'Consult\ConsultController@edit');
+            Route::get('consult/list', 'Article\SingleArticleController@index');
+            Route::get('consult/create', 'Article\SingleArticleController@create');
+            Route::post('consult/postCreate', 'Article\SingleArticleController@postCreate');
+            Route::get('consult/edit', 'Article\SingleArticleController@edit');
             Route::post('consult/postEdit', 'Consult\ConsultController@postEdit');
-            Route::post('consult/del', 'Consult\ConsultController@del');
+            Route::post('consult/del', 'Article\SingleArticleController@del');
 
             /*
              *付款方式
