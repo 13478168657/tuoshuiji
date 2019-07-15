@@ -51,7 +51,7 @@ $lunbo = Advertisement::where('position_id',5)->get();
         <ul>
             <li><strong>热门关键词：</strong></li>
             @foreach($keyCates as $keyCate)
-            <li><a href="/index{{$category->id}}.html">{{$keyCate->name}}</a></li>
+            <li><a href="/index{{$keyCate->id}}.html">{{$keyCate->name}}</a></li>
             @endforeach
         </ul>
     </div>
