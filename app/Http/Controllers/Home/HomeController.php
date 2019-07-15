@@ -66,12 +66,15 @@ class HomeController extends Controller
         $categories = Category::where('base_id',1)->where('id','!=',$category->id)->orderBy('number','desc')->limit(3)->get();
         $articles = Article::where('status',3)->where('is_english',0)->where('category_id',$id)->orderBy('created_at','desc')->take($pageSize)->skip($skip)->get();
         $total = Article::where('status',3)->where('category_id',$id)->where('is_english',0)->orderBy('created_at','desc')->select('id')->count();
-//        dd(3);
+
+        $baseConfig = BaseConfig::first();
+        $data['baseConfig'] = $baseConfig;
+
         $pageSize = PageUtil::getPage($page,$total,$pageSize,$id,'s');
 //        if($id == 11){
 //            return view('home.imgList',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize,'page'=>$page]);
 //        }
-        return view('home.list',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize,'page'=>$page,'navCates'=>$navCates,'singleArticles'=>$singleArticles]);
+        return view('home.list',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize,'page'=>$page,'navCates'=>$navCates,'singleArticles'=>$singleArticles,'baseConfig'=>$baseConfig]);
         return view('home.list');
     }
 

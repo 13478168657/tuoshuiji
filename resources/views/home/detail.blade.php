@@ -57,8 +57,12 @@
                         ?>
                     </div>
                     <div class="connext adimg ">
+                        @if($prevArticle)
                         <span class="nextup">上一页：<a href="/thread-{{$prevArticle->id}}.html">{{$prevArticle->title}}</a></span>
+                        @endif
+                        @if($nextArticle)
                         <span class="next">下一页：<a href="/thread-{{$nextArticle->id}}.html">{{$nextArticle->title}}</a></span>
+                        @endif
                     </div>
                 </div>
                 <div class="yuedu">
