@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>江苏思科尼恩环保科技有限公司</title>
+
+    <title>{{$category->meta_title}}</title>
+    <meta name="keywords" content="{{$baseConfig->meta_keyword}}" />
+    <meta name="description" content="{{$baseConfig->meta_description}}" />
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/public.css">
     <!--轮播图-->

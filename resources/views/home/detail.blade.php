@@ -1,7 +1,9 @@
 @extends('layouts.main')
 
 @section('title')
-    <title>江苏思科尼恩环保科技有限公司</title>
+    <title>{{$article->meta_title}}</title>
+    <meta name="keywords" content="{{$article->meta_keyword}}" />
+    <meta name="description" content="{{$article->meta_description}}" />
 @endsection
 
 @section('css')
