@@ -41,7 +41,7 @@ $lunbo = Advertisement::where('position_id',5)->get();
 <div id="container">
     <div class="sections">
         @foreach($lunbo as $k=>$lb)
-        <div class="section" id="section{{$k}}" style="background-image:url(/uploads/{{$lb->photo}})"></div>
+        <div class="section" id="section{{$k}}" style="background-image:url({{"/uploads/thumb/".$lb->photo}})"></div>
         @endforeach
     </div>
 </div>
