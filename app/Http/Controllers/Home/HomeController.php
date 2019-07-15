@@ -19,14 +19,14 @@ class HomeController extends Controller
 
     public function index(){
 
-        $data['productShow'] = Article::where('category_id',1)->where('is_english',0)->where('status',3)->OrderBy('id','desc')->take(12)->skip(1)->get();//产品展示
-        $data['successExamples'] = Article::where('category_id',3)->where('is_english',0)->where('status',3)->OrderBy('id','desc')->get();//成功案例
-        $data['commonQuestions'] = Article::where('category_id',9)->where('is_english',0)->where('status',3)->OrderBy('id','desc')->take(2)->skip(13)->get();//常见问题
+        $data['productShow'] = Article::where('category_id',12)->where('is_english',0)->where('status',3)->OrderBy('id','desc')->take(12)->skip(1)->get();//产品展示
+        $data['successExamples'] = Article::where('category_id',14)->where('is_english',0)->where('status',3)->OrderBy('id','desc')->get();//成功案例
+        $data['commonQuestions'] = Article::where('category_id',15)->where('is_english',0)->where('status',3)->OrderBy('id','desc')->take(2)->skip(13)->get();//常见问题
 
-        $data['newsActives'] = Article::where('category_id',6)->where('is_english',0)->where('status',3)->OrderBy('id','desc')->take(6)->get();//新闻动态
+        $data['newsActives'] = Article::where('category_id',18)->where('is_english',0)->where('status',3)->OrderBy('id','desc')->take(6)->get();//新闻动态
 
         $data['lunbo'] = Advertisement::where('position_id',4)->get();
-        $data['publicNews'] = Article::where('category_id',14)->where('status',3)->orderBy('id','desc')->take(3)->get();
+        $data['publicNews'] = Article::where('category_id',17)->where('status',3)->orderBy('id','desc')->take(3)->get();
         $baseConfig = BaseConfig::first();
         $data['baseConfig'] = $baseConfig;
         return view('home.index',$data);
