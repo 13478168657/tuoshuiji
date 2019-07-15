@@ -3,7 +3,7 @@ use App\Models\Category;
 use App\Models\Advertisement;
 $categories = Category::take(7)->orderBy('number','asc')->get();
 $keyCates = Category::where('number','>=',100)->get();
-$lunbo = Advertisement::where('position_id',4)->get();
+$lunbo = Advertisement::where('position_id',5)->get();
 ?>
 <div class="top">
     <div class="juzhong">
