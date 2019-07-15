@@ -1,8 +1,9 @@
 <?php
 use App\Models\Category;
-
+use App\Models\Advertisement;
 $categories = Category::take(7)->orderBy('number','asc')->get();
 $keyCates = Category::where('number','>=',100)->get();
+$lunbo = Advertisement::where('position_id',4)->get();
 ?>
 <div class="top">
     <div class="juzhong">
@@ -39,10 +40,9 @@ $keyCates = Category::where('number','>=',100)->get();
 </div>
 <div id="container">
     <div class="sections">
-        <div class="section" id="section0"></div>
-        <div class="section" id="section1"></div>
-        <div class="section" id="section2"></div>
-        <div class="section" id="section3"></div>
+        @foreach($lunbo as $k=>$lb)
+        <div class="section" id="section{{$k}}" style="background-image:url(/uploads/{{$lb->photo}})"></div>
+        @endforeach
     </div>
 </div>
 <!--导航结束 end-->
