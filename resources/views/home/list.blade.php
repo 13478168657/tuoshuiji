@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>{{$category->meta_title}}</title>
+    <title>{{$baseConfig->meta_title}}</title>
     <meta name="keywords" content="{{$baseConfig->meta_keyword}}" />
     <meta name="description" content="{{$baseConfig->meta_description}}" />
     <link rel="stylesheet" href="/css/base.css">
