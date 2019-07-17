@@ -36,7 +36,7 @@ $categories = Category::take(7)->orderBy('number','asc')->get();
 <div class="dibusm w">
     友情链接：
     @foreach($links as $k =>$link)
-        @if($k == count($link))
+        @if($k == count($link)-1)
     <a href="{{$link->url}}">{{$link->name}}</a>
         @else
             <a href="{{$link->url}}">{{$link->name}}</a>	-
