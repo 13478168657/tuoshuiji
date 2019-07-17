@@ -34,7 +34,15 @@ $categories = Category::take(7)->orderBy('number','asc')->get();
 <!--links-->
 
 <div class="dibusm w">
-    友情链接：<a href="product_148.html">塑料脱水机</a>	-	<a href="product_162.html">蔬菜脱水机</a>	-	<a href="product_108_2.html">不锈钢脱水机</a>	-	<a href="product_198.html">工业甩干机</a>	-	<a href="product_205.html">地毯脱水机</a> <br>
+    友情链接：
+    @foreach($links as $k =>$link)
+        @if($k == count($link))
+    <a href="{{$link->url}}">{{$link->name}}</a>
+        @else
+            <a href="{{$link->url}}">{{$link->name}}</a>	-
+        @endif
+    @endforeach
+    <br>
 </div>
 <!--links end-->
 <!--footer strat-->
