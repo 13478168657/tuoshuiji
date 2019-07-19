@@ -10,12 +10,14 @@ use App\Models\Category;
 use App\Models\SingleArticle;
 class ConsultController extends Controller
 {
-    public function index(Request $request,$id){
+    public function index($id){
+//        dd($id);
         $consult = SingleArticle::where('id',$id)->first();
         $categories = Category::where('base_id',1)->orderBy('number','desc')->limit(3)->get();
         $category =  Category::first();
         $articles1 = Article::take(4)->orderBy('id','desc')->get();
         $articles2 = Article::take(4)->orderBy('id','desc')->get();
+//        dd($consult);
         $categories = Category::where('base_id',1)->orderBy('number','desc')->take(3)->get();
         return view('consult.index',['consult'=>$consult,'categories'=>$categories,'category'=>$category,'articles1'=>$articles1,'articles2'=>$articles2]);
     }

@@ -56,8 +56,17 @@ Route::group(['domain' => '{account}.scleanchina.com'], function () {
             return $home->detail($id);
         }
     });
+    Route::get('single/{id}.html', function ($account,$id) {
+        $home = new App\Http\Controllers\Consult\ConsultController();
 
-    Route::get('single/{id}.html','Consult\ConsultController@index');
+        if($account == 'm'){
+            return $home->index($id);
+//            return view('h5.home.index');
+        }else{
+            return $home->index($id);
+        }
+    });
+//    Route::get('single/{id}.html','Consult\ConsultController@index');
     Route::get('instruction','Instruction\InstructionController@index');
     Route::get('notice','Notice\NoticeController@index');
     Route::get('payment','Payment\PaymentController@index');
