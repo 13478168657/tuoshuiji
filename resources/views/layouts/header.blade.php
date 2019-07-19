@@ -35,7 +35,7 @@ $lunbo = Advertisement::where('position_id',5)->get();
         @foreach($categories as $category)
         <li><a href="/index{{$category->id}}.html">{{$category->name}}</a></li>
         @endforeach
-        <li><a href="/about">公司简介</a></li>
+        <li><a href="/single/7.html">公司简介</a></li>
     </ul>
 </div>
 <div id="container">

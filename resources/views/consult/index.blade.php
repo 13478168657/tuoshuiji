@@ -44,9 +44,9 @@
                 <div class="news-l">
                     <div class="mainLeft">
                         <div class="BreadNav">
-                            <a href="/">您当前位置：</a><a href="/index2.html">首页</a>	>	<a href="/single/{{$consult->id}}.html">{{$consult->title}}</a>
+                            <a href="/">您当前位置：</a><a href="/index2.html">首页</a>	>	<a href="/single/{{$consult->id}}.html">{{$consult->name}}</a>
                         </div>
-                        <h1>{{$consult->title}}</h1>
+                        <h1>{{$consult->name}}</h1>
                         <div class="content clearfix">
                             <?php
                             echo htmlspecialchars_decode($consult->content);

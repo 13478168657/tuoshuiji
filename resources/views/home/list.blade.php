@@ -84,7 +84,7 @@
         @foreach($navCates as $navCate)
         <li><a href="/index{{$navCate->id}}.html">{{$navCate->name}}</a></li>
         @endforeach
-        <li><a href="/about">公司简介</a></li>
+        <li><a href="/single/7.html">公司简介</a></li>
     </ul>
 </div>
 <!--footer end-->

@@ -52,7 +52,7 @@ $categories = Category::take(7)->orderBy('number','asc')->get();
         @foreach($categories as $cate)
         <li><a href="/index{{$cate->id}}.html">{{$cate->name}}</a></li>
         @endforeach
-        <li><a href="/about">公司简介</a></li>
+        <li><a href="/single/7.html">公司简介</a></li>
     </ul>
 </div>
 <!--footer end-->
