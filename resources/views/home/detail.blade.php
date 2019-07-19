@@ -44,7 +44,7 @@
             <div class="news-l">
                 <div class="mainLeft">
                     <div class="BreadNav">
-                        <a href="/">您当前位置：</a><a href="/index2.html">首页</a>	>	<a href="/index2.html">联系我们</a>	>	<a href="/index2.html">叠螺机在节能减排方面的优势</a>
+                        <a href="/">您当前位置：</a><a href="/">首页</a>	>	<a href="/index{{$category->id}}.html">{{$category->name}}</a>	>	<a href="">{{$article->title}}</a>
                     </div>
                     <h1>{{$article->title}}</h1>
                     <div class="font2 adimg">
