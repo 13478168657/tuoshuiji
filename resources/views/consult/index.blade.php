@@ -17,26 +17,22 @@
             <div class="left-r">
                 <div class="dianhua">联系我们</div>
                 <ul>
-                    <li><a href="/about">公司介绍</a></li>
-                    <li><a href="/consult">联系方式</a></li>
-                    <li><a href="/notice">免责声明</a></li>
-                    <li><a href="/payment">本站购物</a></li>
-                    <li><a href="/instruction">版权声明</a></li>
+                    @foreach($singleArticles as $single)
+                        <li><a href="/single/{{$single->id}}.html">{{$single->name}}</a></li>
+                    @endforeach
                 </ul>
             </div>
 
             <div class="left">
-                <div class="dianhua">联系我们</div>
-                <p>电话：13865929250</p>
-                <p>传真：13865929250</p>
-                <p>电子邮件：643717450@qq.com</p>
-                <p>网址：www.saipujianshen.com</p>
-                <p>地址：北京大兴区金源路26号</p>
-                <p class="yanse">【综合服务部】</p>
-                <p>李先生：电话：13865929250</p>
-                <p>李先生：电话：13865929250</p>
-                <p>李先生：电话：13865929250</p>
-                <p>李先生：电话：13865929250</p>
+                    <div class="dianhua">联系我们</div>
+                    <p>电话：186-2606-0118</p>
+                    <p>传真：0510-87835338</p>
+
+                    <p>网址：www.scleanchina.com</p>
+                    <p>地址：江苏省宜兴市高塍工业集中区华汇路0号</p>
+                    <p class="yanse">【综合服务部】</p>
+                    <p>电话：186-2606-0118</p>
+                    <p>固话：0510-87835338</p>
             </div>
         </div>
         <div class="right">

@@ -21,7 +21,7 @@ class HomeController extends Controller
 
         $data['productShow'] = Article::where('category_id',12)->where('is_english',0)->where('status',3)->OrderBy('id','desc')->take(12)->skip(1)->get();//产品展示
         $data['successExamples'] = Article::where('category_id',14)->where('is_english',0)->where('status',3)->OrderBy('id','desc')->get();//成功案例
-        $data['commonQuestions'] = Article::where('category_id',15)->where('is_english',0)->where('status',3)->OrderBy('id','desc')->take(2)->skip(13)->get();//常见问题
+        $data['commonQuestions'] = Article::where('category_id',15)->where('is_english',0)->where('status',3)->OrderBy('id','desc')->take(3)->skip(13)->get();//常见问题
 
         $data['newsActives'] = Article::where('category_id',18)->where('is_english',0)->where('status',3)->OrderBy('id','desc')->take(6)->get();//新闻动态
 

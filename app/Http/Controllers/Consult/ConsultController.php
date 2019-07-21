@@ -19,6 +19,7 @@ class ConsultController extends Controller
         $articles2 = Article::take(4)->orderBy('id','desc')->get();
 //        dd($consult);
         $categories = Category::where('base_id',1)->orderBy('number','desc')->take(3)->get();
-        return view('consult.index',['consult'=>$consult,'categories'=>$categories,'category'=>$category,'articles1'=>$articles1,'articles2'=>$articles2]);
+        $singleArticles = SingleArticle::where('type',0)->get();
+        return view('consult.index',['consult'=>$consult,'categories'=>$categories,'category'=>$category,'articles1'=>$articles1,'articles2'=>$articles2,'singleArticles'=>$singleArticles]);
     }
 }
