@@ -100,7 +100,8 @@ class ArticleController extends Controller
         }
         $article->creator_user_id = 1;
         if($article->save()){
-            return redirect('/manage/info?key='.$key.'&id='.$article->category_number);
+
+            return json_encode(['code'=>0,'message'=>'添加成功','data'=>['redirect'=>'/manage/info?key='.$key.'&id='.$article->category_number]]);//            return redirect('/manage/info?key='.$key.'&id='.$article->category_number);
         }
     }
     /*
@@ -144,7 +145,8 @@ class ArticleController extends Controller
         }
         $article->creator_user_id = $request->user()->id;
         if($article->save()){
-            return redirect('/manage/info?key='.$key.'&id='.$article->category_number);
+            return json_encode(['code'=>0,'message'=>'编辑成功','data'=>['redirect'=>'/manage/info?key='.$key.'&id='.$article->category_number]]);
+//            return redirect('/manage/info?key='.$key.'&id='.$article->category_number);
         }
     }
 
@@ -164,6 +166,12 @@ class ArticleController extends Controller
     {
         $imageUpload = new ImageUpload();
         $result = $imageUpload->upload($request);
+        return $result;
+    }
+
+    public function editUpload(Request $request){
+        $imageUpload = new ImageUpload();
+        $result = $imageUpload->fileUpload($request);
         return $result;
     }
 }

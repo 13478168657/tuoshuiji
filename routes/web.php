@@ -91,6 +91,7 @@ Route::group(['domain' => '{account}.scleanchina.com'], function () {
             Route::post('manage/del', 'Article\ArticleController@del');
 
             Route::post('article/upload', 'Article\ArticleController@upload');
+            Route::post('article/editUpload', 'Article\ArticleController@editUpload');
             Route::get('position/list', 'Article\ClassifyController@index');
             Route::get('position/add', 'Article\ClassifyController@add');
             Route::post('position/postCreate', 'Article\ClassifyController@postCreate');
