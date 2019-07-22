@@ -102,11 +102,6 @@
                                     </td>
                                 </tr>
                                 <input type="hidden" id="detail" name="detail" value="{{$article->content}}" >
-                                {{--<div class="show" style="display:none;">--}}
-                                    {{--<?php--}}
-                                        {{--echo htmlspecialchars_decode($article->content);--}}
-                                    {{--?>--}}
-                                {{--</div>--}}
                                 <tr>
                                     <th></th>
                                     <td>
