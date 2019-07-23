@@ -16,7 +16,7 @@ class ConsultController extends Controller
         $categories = Category::where('base_id',1)->orderBy('number','desc')->limit(3)->get();
         $category =  Category::first();
         $articles1 = Article::take(4)->orderBy('id','desc')->get();
-        $articles2 = Article::take(4)->orderBy('id','desc')->get();
+        $articles2 = Article::skip(4)->take(4)->orderBy('id','desc')->get();
 //        dd($consult);
         $categories = Category::where('base_id',1)->orderBy('number','desc')->take(3)->get();
         $singleArticles = SingleArticle::where('type',0)->get();
