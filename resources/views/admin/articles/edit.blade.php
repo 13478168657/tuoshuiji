@@ -70,7 +70,7 @@
                                         <label for="case_foreman_id">meta描述:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                 <textarea type="text" size="90" style="width:350px;height:80px;" maxlength="350" class="form-control" id="inputPassword2"  name="meta_description" placeholder="meta描述">{{$article->meta_description}}</textarea>
+                                        <div class="form-group">                                                                 <textarea type="text" size="90" style="width:350px;height:80px;" maxlength="350" class="form-control description" id="inputPassword2"  name="meta_description" placeholder="meta描述">{{$article->meta_description}}</textarea>
                                         </div>
                                     </td>
                                 </tr>
