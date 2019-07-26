@@ -19,7 +19,7 @@ class HomeController extends Controller
 
     public function index(){
 
-        $data['productShow'] = Article::where('category_id',12)->where('is_english',0)->where('status',3)->OrderBy('id','desc')->take(12)->skip(1)->get();//产品展示
+        $data['productShow'] = Article::where('category_id',12)->where('is_english',0)->where('status',3)->OrderBy('id','desc')->take(12)->get();//产品展示
         $data['successExamples'] = Article::where('category_id',14)->where('is_english',0)->where('status',3)->OrderBy('id','desc')->get();//成功案例
         $data['commonQuestions'] = Article::where('category_id',17)->where('is_english',0)->where('status',3)->OrderBy('id','desc')->take(3)->get();//常见问题
 
