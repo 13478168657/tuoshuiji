@@ -23,8 +23,8 @@ $lunbo = Advertisement::where('position_id',5)->get();
     </div>
     <div class="logo-r">
         <span class="logo-r-rexian">全国服务热线：</span>
-        <span class="dianh">138-6592-9250</span>
-        <span class="dianh">400-1199-8611</span>
+        <span class="dianh">186-2606-0118</span>
+        <span class="dianh">0510-87835238</span>
     </div>
 </div>
 
