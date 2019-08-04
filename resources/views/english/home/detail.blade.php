@@ -20,7 +20,7 @@
                 <div class="dianhua">联系我们</div>
                 <ul>
                     @foreach($singleArticles as $single)
-                        <li><a href="/single/{{$single->id}}.html">{{$single->name}}</a></li>
+                        <li><a href="/en/single/{{$single->id}}.html">{{$single->name}}</a></li>
                     @endforeach
                 </ul>
             </div>
@@ -41,7 +41,7 @@
                 <div class="news-l">
                     <div class="mainLeft">
                         <div class="BreadNav">
-                            <a href="/">您当前位置：</a><a href="/">首页</a>	>	<a href="/index{{$category->id}}.html">{{$category->name}}</a>	>	<a href="">{{$article->title}}</a>
+                            <a href="/">您当前位置：</a><a href="/en.html">首页</a>	>	<a href="/en/index{{$category->id}}.html">{{$category->english_name}}</a>	>	<a href="">{{$article->title}}</a>
                         </div>
                         <h1>{{$article->title}}</h1>
                         <div class="font2 adimg">
@@ -57,10 +57,10 @@
                         </div>
                         <div class="connext adimg ">
                             @if($prevArticle)
-                                <span class="nextup">上一页：<a href="/thread-{{$prevArticle->id}}.html">{{$prevArticle->title}}</a></span>
+                                <span class="nextup">上一页：<a href="/en/thread-{{$prevArticle->id}}.html">{{$prevArticle->title}}</a></span>
                             @endif
                             @if($nextArticle)
-                                <span class="next">下一页：<a href="/thread-{{$nextArticle->id}}.html">{{$nextArticle->title}}</a></span>
+                                <span class="next">下一页：<a href="/en/thread-{{$nextArticle->id}}.html">{{$nextArticle->title}}</a></span>
                             @endif
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                         <span class="li_dot lefzz">
                             <i></i>
                         </span>
-                                    <a class="no_line lefzz" href="/thread-{{$article->id}}.html" >{{$article->title}}</a>
+                                    <a class="no_line lefzz" href="/en/thread-{{$article->id}}.html" >{{$article->title}}</a>
                                 </li>
                             @endforeach
                         </ul>
@@ -86,7 +86,7 @@
                         <span class="li_dot lefzz">
                             <i></i>
                         </span>
-                                    <a class="no_line lefzz" href="/thread-{{$article->id}}.html">{{$article->title}}</a>
+                                    <a class="no_line lefzz" href="/en/thread-{{$article->id}}.html">{{$article->title}}</a>
                                 </li>
                             @endforeach
                         </ul>
@@ -99,5 +99,5 @@
         </div>
     </div>
     <div style="clear:both"></div>
-    @include('layouts.footer')
+    @include('english.layouts.footer')
 @endsection
