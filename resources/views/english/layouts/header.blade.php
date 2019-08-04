@@ -1,9 +1,9 @@
 <?php
 use App\Models\Category;
-
-$categories = Category::take(9)->orderBy('number','desc')->get();
-
-
+use App\Models\Advertisement;
+$categories = Category::take(7)->orderBy('number','asc')->get();
+$keyCates = Category::where('number','>=',100)->get();
+$lunbo = Advertisement::where('position_id',5)->get();
 ?>
 <div class="top">
     <div class="juzhong">
@@ -32,18 +32,17 @@ $categories = Category::take(9)->orderBy('number','desc')->get();
 <div class="nav">
     <ul class="nav-banner w">
         <li><a href="/en.html" class="munber">home</a></li>
-        <li><a href="/en/index1.html">product show</a></li>
-        <li><a href="/en/index2.html">video center</a></li>
-        <li><a href="/en/index3.html">success Example</a></li>
-        <li><a href="/en/index4.html">service support</a></li>
-        <li><a href="/en/index5.html">dirty mach</a></li>
-        <li><a href="/en/index6.html">company news</a></li>
-        <li><a href="/en/index7.html">news</a></li>
+        @foreach($categories as $category)
+            <li><a href="/en/index{{$category->id}}.html">{{$category->english_name}}</a></li>
+        @endforeach
         <li><a href="/en/about">公司简介</a></li>
     </ul>
 </div>
 <div id="container">
     <div class="sections">
+        @foreach($lunbo as $k=>$lb)
+            <div class="section" id="section{{$k}}" style="background-image:url({{"/uploads/thumb/".$lb->photo}})"></div>
+        @endforeach
         {{--<div class="section" id="section0"></div>--}}
         {{--<div class="section" id="section1"></div>--}}
         {{--<div class="section" id="section2"></div>--}}
@@ -55,14 +54,9 @@ $categories = Category::take(9)->orderBy('number','desc')->get();
     <div class="sousou-center w">
         <ul>
             <li><strong>热门关键词：</strong></li>
-            <li><a href="">脱水机</a></li>
-            <li><a href="">脱水机</a></li>
-            <li><a href="">脱水机</a></li>
-            <li><a href="">脱水机</a></li>
-            <li><a href="">脱水机</a></li>
-            <li><a href="">脱水机</a></li>
-            <li><a href="">脱水机</a></li>
-            <li><a href="">脱水机</a></li>
+            @foreach($keyCates as $keyCate)
+                <li><a href="/en/index{{$keyCate->id}}.html">{{$keyCate->name}}</a></li>
+            @endforeach
         </ul>
     </div>
 </div>

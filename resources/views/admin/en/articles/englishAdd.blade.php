@@ -4,12 +4,12 @@
 @endsection
 @section('content')
     <div class="main" id="mainWrapper">
-        <h3>广告添加</h3>
+        <h3>文章添加</h3>
         <div class="wrapper table-scroll-wrapper">
             <div class="row">
                 <div class='col-md-12'>
                     <div class="table-responsive">
-                        <form class="form-inline" method="post" enctype="multipart/form-data" action="/manage/postCreate">
+                        <form class="form-inline" id="articleSubmit" method="post" enctype="multipart/form-data" action="/manage/postCreate">
                             {{csrf_field()}}
                             <input type="hidden" name="category_id" value="{{$category_id}}"/>
                             <input type="hidden" name="key" value="{{$key}}"/>
@@ -64,7 +64,7 @@
                                         <label for="case_foreman_id">meta description:</label>
                                     </th>
                                     <td style="width:90%;">
-                                        <div class="form-group">                                                                <textarea type="text" size="90" style="width:350px;height:80px;" maxlength="350" class="form-control" id="inputPassword2"  name="meta_description" placeholder="meta description"></textarea>
+                                        <div class="form-group">                                                                <textarea type="text" size="90" style="width:350px;height:80px;" maxlength="350" class="form-control description" id="inputPassword2"  name="meta_description" placeholder="meta description"></textarea>
                                         </div>
                                     </td>
                                 </tr>
@@ -90,7 +90,9 @@
                                     <th><label for="case_description">content:</label>
                                     </th>
                                     <td>
-                                        <textarea id="editor" name="content" type="text/plain" style="width:720px;height:500px;"></textarea>
+                                        <div id="div1">
+
+                                        </div>
                                     </td>
                                 </tr>
                                 <tr>
@@ -108,10 +110,54 @@
     </div>
 @endsection
 @section('script')
-    <script type="text/javascript" src="/admin/ueditor/ueditor.config.js"></script>
-    <script type="text/javascript" src="/admin/ueditor/ueditor.all.js"></script>
+    {{--<script type="text/javascript" src="/admin/ueditor/ueditor.config.js"></script>--}}
+    {{--<script type="text/javascript" src="/admin/ueditor/ueditor.all.js"></script>--}}
+    {{----}}
+    {{--<script type="text/javascript">--}}
+    {{--var ue = UE.getEditor('editor');--}}
+    {{--</script>--}}
+    <script type="text/javascript" src="/admin/wangEditor/release/wangEditor.js"></script>
     <script type="text/javascript">
-        var ue = UE.getEditor('editor');
+        var _token = '{{csrf_token()}}'
+        var E = window.wangEditor
+        var editor = new E('#div1')
+        editor.customConfig.uploadImgServer = "/article/editUpload";  // 上传图片到服务器
+        editor.customConfig.uploadFileName = "file";      //文件名称  也就是你在后台接受的 参数值
+        editor.customConfig.uploadImgParams = {
+            _token: _token
+        }
+        editor.customConfig.uploadImgHeaders = {    //header头信息
+            'Accept': 'text/x-json'
+        }
+        // 将图片大小限制为 3M
+        editor.customConfig.uploadImgMaxSize = 3 * 1024 * 1024   //默认为5M
+        editor.customConfig.uploadImgShowBase64 = false;   // 使用 base64 保存图片
+
+        editor.customConfig.debug = true; //是否开启Debug 默认为false 建议开启 可以看到错误
+        //图片在编辑器中回显
+        editor.customConfig.uploadImgHooks = {
+            error: function (xhr, editor) {
+                alert("2：" + xhr + "请查看你的json格式是否正确，图片并没有上传");
+                // 图片上传出错时触发  如果是这块报错 就说明文件没有上传上去，直接看自己的json信息。是否正确
+            },
+            fail: function (xhr, editor, result) {
+                //  如果在这出现的错误 就说明图片上传成功了 但是没有回显在编辑器中，我在这做的是在原有的json 中添加了
+                //  一个url的key（参数）这个参数在 customInsert也用到
+                //
+                alert("1：" + xhr + "请查看你的json格式是否正确，图片上传了，但是并没有回显");
+            },
+            success:function(xhr, editor, result){
+                //成功 不需要alert 当然你可以使用console.log 查看自己的成功json情况
+                //console.log(result)
+                // insertImg('https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png')
+            },
+            customInsert: function (insertImg, result, editor) {
+
+                insertImg(result.url);
+            }
+        };
+        editor.customConfig.showLinkImg = true; //是否开启网络图片，默认开启的。
+        editor.create()
     </script>
     <script type="text/javascript" charset="utf-8" src="/admin/ueditor/lang/zh-cn/zh-cn.js"></script>
     <!-- page specific plugin scripts -->
@@ -141,6 +187,35 @@
         });
         function delImgUrl(obj){
             $(obj).parent().remove();
+        }
+        $('#articleSubmit').on('submit', function(){
+            articlePost()
+            event.preventDefault() //阻止form表单默认提交
+        });
+        var key = '{{$key}}';
+        var category_id = '{{$category_id}}';
+        function articlePost() {
+            var token = '{{csrf_token()}}';
+            var title = $("input[name='title']").val();
+            var author = $("input[name='author']").val();
+            var source = $("input[name='source']").val();
+            var image = $("input[name='image']").val();
+            var meta_keyword = $("input[name='meta_keyword']").val();
+            var meta_description = $(".description").val();
+            var status = $("input[name='status']:checked").val();
+            var content = editor.txt.html()
+            var data = {title:title,author:author,source:source,image:image,meta_keyword:meta_keyword,meta_description:meta_description,status:status,content:content,_token:token,key:key,category_id:category_id};
+            $.ajax({
+                type: "post",
+                url: "/manage/postCreate",
+                data: data,
+                dataType:'json',
+                success:function(res){
+                    if(res.code == 0){
+                        window.location.href = res.data.redirect;
+                    }
+                }
+            })
         }
     </script>
 @endsection

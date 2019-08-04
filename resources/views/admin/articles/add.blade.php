@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <div class="main" id="mainWrapper">
-        <h3>广告添加</h3>
+        <h3>文章添加</h3>
         <div class="wrapper table-scroll-wrapper">
             <div class="row">
                 <div class='col-md-12'>
