@@ -46,7 +46,7 @@ $projectType = ProjectModel::first();
                     <i class="glyphicon toggle-icon glyphicon-menu-down"></i>
                 </a>
                 <ul class="side-ul-menu">
-                    <li class="ad_position consult-us"><a href="/consult/list">单页列表</a></li>
+                    <li class="ad_position consult-us"><a href="/consult/list">singlepage</a></li>
                 </ul>
             </li>
             <li>
