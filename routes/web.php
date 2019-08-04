@@ -23,26 +23,32 @@ Route::group(['domain' => '{account}.scleanchina.com'], function () {
         }
     });
     Route::get('/en.html','Home\EnHomeController@index');
-    Route::get('/en/index{id}.html','Home\EnHomeController@lists');
     Route::get('/en/thread-{id}.html','Home\EnHomeController@detail');
     Route::get('/index{id}.html', function ($account,$id) {
-//        dd($account);
-//        dd(1);
+
         $home = new App\Http\Controllers\Home\HomeController();
         if($account == 'm'){
             return $home->hlist($id);
-//            return view('h5.home.index');
+
+        }else{
+            return $home->lists($id);
+        }
+    });
+    Route::get('en/index{id}.html', function ($account,$id) {
+
+        $home = new App\Http\Controllers\Home\EnHomeController();
+        if($account == 'm'){
+            return $home->hlist($id);
+
         }else{
             return $home->lists($id);
         }
     });
     Route::get('/search.html', function ($account) {
-//        dd($account);
-//        dd(1);
+
         $home = new App\Http\Controllers\Home\HomeController();
         if($account == 'm'){
             return $home->hslist();
-//            return view('h5.home.index');
         }else{
             return $home->slists();
         }
@@ -51,19 +57,32 @@ Route::group(['domain' => '{account}.scleanchina.com'], function () {
         $home = new App\Http\Controllers\Home\HomeController();
         if($account == 'm'){
             return $home->hdetail($id);
-//            return view('h5.home.index');
+        }else{
+            return $home->detail($id);
+        }
+    });
+    Route::get('en/thread-{id}.html', function ($account,$id) {
+        $home = new App\Http\Controllers\Home\EnHomeController();
+        if($account == 'm'){
+            return $home->hdetail($id);
         }else{
             return $home->detail($id);
         }
     });
     Route::get('single/{id}.html', function ($account,$id) {
         $home = new App\Http\Controllers\Consult\ConsultController();
-
         if($account == 'm'){
             return $home->index($id);
-//            return view('h5.home.index');
         }else{
             return $home->index($id);
+        }
+    });
+    Route::get('en/single/{id}.html', function ($account,$id) {
+        $home = new App\Http\Controllers\Consult\ConsultController();
+        if($account == 'm'){
+            return $home->eindex($id);
+        }else{
+            return $home->eIndex($id);
         }
     });
 //    Route::get('single/{id}.html','Consult\ConsultController@index');

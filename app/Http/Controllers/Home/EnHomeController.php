@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Models\Advertisement;
 use App\Models\AdSpace;
 use App\Models\BaseConfig;
+use App\Models\SingleArticle;
 use App\Models\Goods;
 use App\Utils\PageUtil;
 use Illuminate\Support\Facades\Input;
@@ -48,11 +49,6 @@ class EnHomeController extends Controller
             $info = $id;
             $id = substr($info, 0,strpos($info, 's'));
             $page = substr($info,strpos($info, 's')+1);
-//            dd($page);
-//            $request= $request->get('page',$page);
-//            if($this->isMobile()){
-//                return redirect('/h/index'.$id.'s'.$page.'.html');
-//            }
         }
 
 //        $request->page = $page;
@@ -63,35 +59,41 @@ class EnHomeController extends Controller
             $pageSize = 10;
             $skip = ($page-1)*$pageSize;
         }
+        $navCates = Category::take(7)->orderBy('number','asc')->get();
+        $singleArticles = SingleArticle::where('type',1)->get();
         $category =  Category::where('id',$id)->first();
-        $categories = Category::where('base_id',1)->where('id','!=',$category->id)->orderBy('number','desc')->limit(3)->get();
-        $articles = Article::where('status',3)->where('category_id',$id)->orderBy('created_at','desc')->take($pageSize)->skip($skip)->get();
-        $total = Article::where('status',3)->where('category_id',$id)->orderBy('created_at','desc')->select('id')->count();
-//        dd(3);
+
+        $categories = Category::where('base_id',1)->where('id','!=',$id)->orderBy('number','desc')->limit(3)->get();
+        $articles = Article::where('status',3)->where('category_id',$id)->where('is_english',1)->orderBy('created_at','desc')->take($pageSize)->skip($skip)->get();
+        $total = Article::where('status',3)->where('category_id',$id)->where('is_english',1)->orderBy('created_at','desc')->select('id')->count();
+
+        $baseConfig = BaseConfig::first();
+        $data['baseConfig'] = $baseConfig;
+
         $pageSize = PageUtil::getPage($page,$total,$pageSize,$id,'s');
         if($id == 11){
-            return view('home.imgList',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize,'page'=>$page]);
+            return view('english.home.imgList',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize,'page'=>$page,'baseConfig' => $baseConfig,'singleArticles'=>$singleArticles,'navCates'=>$navCates]);
         }
-        return view('home.list',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize,'page'=>$page]);
+        return view('english.home.list',['category'=>$category,'categories'=>$categories,'articles'=>$articles,'pageSize'=>$pageSize,'page'=>$page,'baseConfig' => $baseConfig,'singleArticles'=>$singleArticles,'navCates'=>$navCates]);
         return view('home.list');
     }
 
 
     public function detail($id){
-//        if($this->isMobile()){
-//            return redirect('/h/thread-'.$id.'.html');
-//        }
         $article = Article::where('id',$id)->first();
         $article->visit_num = $article->visit_num+1;
 
         $article->save();
         $category =  Category::where('id',$article->category_id)->first();
-        $nextArticle = Article::where('id',$id+1)->first();
-        $prevArticle = Article::where('id',$id-1)->first();
-        $articles = Article::where('category_id',$article->category_id)->take(10)->orderBy('id','desc')->get();
+        $singleArticles = SingleArticle::where('type',1)->get();
+        $nextArticle = Article::where('is_english',1)->where('id','>',$id)->first();
+        $prevArticle = Article::where('is_english',1)->where('id','<',$id)->first();
+        $articles1 = Article::where('category_id',$article->category_id)->where('is_english',1)->take(4)->where('id','!=',$article->id)->orderBy('id','desc')->get();
+        $articles2 = Article::where('category_id',$article->category_id)->skip(4)->take(4)->where('id','!=',$article->id)->where('is_english',1)->orderBy('id','desc')->get();
         $categories = Category::where('base_id',1)->where('id','!=',$article->category_id)->orderBy('number','desc')->take(3)->get();
-        return view('home.detail',['article'=>$article,'categories'=>$categories,'category'=>$category,'nextArticle'=>$nextArticle,'prevArticle'=>$prevArticle,'articles'=>$articles]);
-        return view('home.detail');
+        $baseConfig = BaseConfig::first();
+        return view('home.detail',['article'=>$article,'categories'=>$categories,'category'=>$category,'nextArticle'=>$nextArticle,'prevArticle'=>$prevArticle,'articles1'=>$articles1,'articles2'=>$articles2,'singleArticles'=>$singleArticles,'baseConfig'=>$baseConfig]);
+        return view('english.home.detail');
     }
 
     public function goodsDetail($id){
@@ -102,7 +104,7 @@ class EnHomeController extends Controller
         $prevGoods = Goods::where('id',$id-1)->first();
         $category =  Category::where('id',1)->first();
         $categories = Category::where('base_id',1)->where('id','!=',1)->orderBy('number','desc')->take(3)->get();
-        return view('home.goodsDetail',['goods'=>$goods,'categories'=>$categories,'category'=>$category,'nextGoods'=>$nextGoods,'prevGoods'=>$prevGoods]);
+        return view('english.home.goodsDetail',['goods'=>$goods,'categories'=>$categories,'category'=>$category,'nextGoods'=>$nextGoods,'prevGoods'=>$prevGoods]);
     }
 
 }

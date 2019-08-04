@@ -100,10 +100,10 @@ class HomeController extends Controller
         $article->save();
         $category =  Category::where('id',$article->category_id)->first();
         $singleArticles = SingleArticle::where('type',0)->get();
-        $nextArticle = Article::where('id',$id+1)->first();
-        $prevArticle = Article::where('id',$id-1)->first();
-        $articles1 = Article::where('category_id',$article->category_id)->take(4)->where('id','!=',$article->id)->orderBy('id','desc')->get();
-        $articles2 = Article::where('category_id',$article->category_id)->skip(4)->take(4)->where('id','!=',$article->id)->orderBy('id','desc')->get();
+        $nextArticle = Article::where('is_english',0)->where('id','>',$id)->first();
+        $prevArticle = Article::where('is_english',0)->where('id','<',$id)->first();
+        $articles1 = Article::where('category_id',$article->category_id)->where('is_english',0)->take(4)->where('id','!=',$article->id)->orderBy('id','desc')->get();
+        $articles2 = Article::where('category_id',$article->category_id)->skip(4)->take(4)->where('id','!=',$article->id)->where('is_english',0)->orderBy('id','desc')->get();
         $categories = Category::where('base_id',1)->where('id','!=',$article->category_id)->orderBy('number','desc')->take(3)->get();
         $baseConfig = BaseConfig::first();
         return view('home.detail',['article'=>$article,'categories'=>$categories,'category'=>$category,'nextArticle'=>$nextArticle,'prevArticle'=>$prevArticle,'articles1'=>$articles1,'articles2'=>$articles2,'singleArticles'=>$singleArticles,'baseConfig'=>$baseConfig]);
