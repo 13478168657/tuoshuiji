@@ -9,7 +9,7 @@ $lunbo = Advertisement::where('position_id',5)->get();
     <div class="juzhong">
         您好，欢迎来到江苏思科尼恩环保科技有限公司
         <ul>
-            <li><a href="">中文</a></li>
+            <li><a href="/">中文</a></li>
             <li><a href="/en.html">英文</a></li>
         </ul>
     </div>
@@ -35,7 +35,7 @@ $lunbo = Advertisement::where('position_id',5)->get();
         @foreach($categories as $category)
             <li><a href="/en/index{{$category->id}}.html">{{$category->english_name}}</a></li>
         @endforeach
-        <li><a href="/about">公司简介</a></li>
+        <li><a href="/en/single/7.html">公司简介</a></li>
     </ul>
 </div>
 <div id="container">
