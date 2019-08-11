@@ -60,7 +60,7 @@ class HomeController extends Controller
             $pageSize = 10;
             $skip = ($page-1)*$pageSize;
         }
-        $navCates = Category::take(7)->orderBy('number','asc')->get();
+        $navCates = Category::take(9)->orderBy('number','asc')->get();
         $category =  Category::where('id',$id)->first();
 //        dd($category);
         $categories = Category::where('base_id',1)->where('id','!=',$category->id)->orderBy('number','desc')->limit(3)->get();
