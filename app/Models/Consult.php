@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Consult extends Model
 {
     use SoftDeletes;
-    protected $table = 'consult';
+    protected $table = 'single_articles';
 }
