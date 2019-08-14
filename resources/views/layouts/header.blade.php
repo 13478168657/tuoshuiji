@@ -45,7 +45,7 @@ $lunbo = Advertisement::where('position_id',5)->get();
         @foreach($lunbo as $k=>$lb)
         <li>
             <a title="" target="_blank" href="#">
-                <img width="1920" height="450" alt="" style="background: url({{"/uploads/thumb/".$lb->photo}}) no-repeat center;" src="/uploads/thumb/{{$lb->photo}}">
+                <img width="1920" height="450" alt="" style="background: url({{"/uploads/thumb/".$lb->photo}}) no-repeat center;" src="/images/alpha.png">
             </a>
         </li>
         @endforeach
