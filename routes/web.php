@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |{account}.xaxq365.com.cn scleanchina
 */
-Route::group(['domain' => '{account}.scleanchina.com'], function () {
+Route::group(['domain' => '{account}.tsj.com'], function () {
 //    dd($_SERVER['REQUEST_URI']);
     Route::get('/', function ($account) {
 //        dd($account);

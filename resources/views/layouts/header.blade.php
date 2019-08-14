@@ -38,13 +38,35 @@ $lunbo = Advertisement::where('position_id',5)->get();
         <li><a href="/single/7.html">公司简介</a></li>
     </ul>
 </div>
-<div id="container">
-    <div class="sections">
+
+<!--轮播图-->
+<div id="banner_tabs" class="flexslider">
+    <ul class="slides">
         @foreach($lunbo as $k=>$lb)
-        <div class="section" id="section{{$k}}" style="background-image:url({{"/uploads/thumb/".$lb->photo}})"></div>
+        <li>
+            <a title="" target="_blank" href="#">
+                <img width="1920" height="450" alt="" style="background: url({{"/uploads/thumb/".$lb->photo}}) no-repeat center;" src="/uploads/thumb/{{$lb->photo}}">
+            </a>
+        </li>
         @endforeach
-    </div>
+    </ul>
+    <ul class="flex-direction-nav">
+        <li><a class="flex-prev" href="javascript:;">Previous</a></li>
+        <li><a class="flex-next" href="javascript:;">Next</a></li>
+    </ul>
+    <ol id="bannerCtrl" class="flex-control-nav flex-control-paging">
+        <li><a>1</a></li>
+        <li><a>2</a></li>
+        <li><a>2</a></li>
+    </ol>
 </div>
+{{--<div id="container">--}}
+    {{--<div class="sections">--}}
+        {{--@foreach($lunbo as $k=>$lb)--}}
+        {{--<div class="section" id="section{{$k}}" style="background-image:url({{"/uploads/thumb/".$lb->photo}})"></div>--}}
+        {{--@endforeach--}}
+    {{--</div>--}}
+{{--</div>--}}
 <!--导航结束 end-->
 <div class="sousuo">
     <div class="sousou-center w">

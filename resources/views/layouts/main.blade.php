@@ -35,16 +35,26 @@
 @yield('footer')
 @yield('script')
 <!--轮播图strat-->
-<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
-<script src="dist/pageSwitch.min.js"></script>
+<script src="/js/jquery-1.10.2.min.js"></script>
+<script src="/js/slider.js"></script>
 <script>
-	$("#container").PageSwitch({
-		direction:'horizontal',
-		easing:'ease-in',
-		duration:1000,
-		autoPlay:true,
-		loop:'false'
-	});
+	$(function() {
+		var bannerSlider = new Slider($('#banner_tabs'), {
+			time: 8000,
+			delay: 400,
+			event: 'hover',
+			auto: true,
+			mode: 'fade',
+			controller: $('#bannerCtrl'),
+			activeControllerCls: 'active'
+		});
+		$('#banner_tabs .flex-prev').click(function() {
+			bannerSlider.prev()
+		});
+		$('#banner_tabs .flex-next').click(function() {
+			bannerSlider.next()
+		});
+	})
 </script>
 <!--轮播图end-->
 </body>
