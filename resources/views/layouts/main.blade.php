@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="/css/public.css">
 
 	<!--轮播图-->
-	<link rel="stylesheet" href="/dist/pageSwitch.min.css">
+	<link rel="stylesheet" href="/css/pageSwitch.min.css">
 	@yield('css')
 	<meta name="baidu-site-verification" content="UIwf5p0taI" />
 </head>
